@@ -1,0 +1,18 @@
+{
+  "name": "scorpion-security-hub-server",
+  "version": "1.0.0",
+  "description": "Node.js API and AI backend for Scorpion Security Hub",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "dotenv": "^16.4.5"
+  }
+}

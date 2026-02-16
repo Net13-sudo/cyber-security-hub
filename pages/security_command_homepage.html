@@ -40,6 +40,7 @@
                             </div>
                         </div>
                         <a href="threat_intelligence_center.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Threat Intelligence</a>
+                        <a href="portfolio.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
                         <a href="client_security_portal.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Client Portal</a>
                         <a href="incident_response_center.html" class="bg-error text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-error-600 transition-colors">Emergency Response</a>
                     </div>
@@ -63,6 +64,7 @@
                 <a href="penetration_testing_lab.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Penetration Testing</a>
                 <a href="compliance_solutions.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Compliance Solutions</a>
                 <a href="threat_intelligence_center.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Threat Intelligence</a>
+                <a href="portfolio.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Portfolio</a>
                 <a href="client_security_portal.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Client Portal</a>
                 <a href="incident_response_center.html" class="bg-error text-white block px-3 py-2 rounded-md text-base font-semibold">Emergency Response</a>
             </div>
@@ -514,6 +516,47 @@
         </div>
     </section>
 
+    <!-- Software & Projects Section -->
+    <section class="py-16 bg-surface" id="software-projects">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary mb-4">Software & Projects</h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">Explore our security products and delivered engagements.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <a href="portfolio.html#software" class="card hover:shadow-elevated transition-all duration-300 group block">
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center mr-5 group-hover:bg-accent/20 transition-colors">
+                            <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-xl font-semibold text-primary group-hover:text-accent transition-colors">Our Software</h3>
+                            <p class="text-text-secondary text-sm">SIEM, threat intel, compliance, IAM, and more.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="portfolio.html#projects" class="card hover:shadow-elevated transition-all duration-300 group block">
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mr-5 group-hover:bg-primary/20 transition-colors">
+                            <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="text-xl font-semibold text-primary group-hover:text-accent transition-colors">Our Projects</h3>
+                            <p class="text-text-secondary text-sm">Healthcare, finance, manufacturing, and more.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="text-center mt-8">
+                <a href="portfolio.html" class="btn-primary">View full portfolio</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Emergency Contact Widget (Floating) -->
     <div class="fixed bottom-6 right-6 z-50">
         <div class="relative group">
@@ -691,6 +734,7 @@
             threatsElement.textContent = newThreats.toLocaleString();
         }, 30000); // Update every 30 seconds
     </script>
+<script src="../js/ai-widget.js"></script>
 <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 </html>

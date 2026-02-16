@@ -1,0 +1,11 @@
+# Scorpion Security Hub - Python AI Service
+# Python 3.10+
+
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+python-dotenv==1.0.1
+
+# Providers
+openai==1.55.3
+anthropic==0.39.0
+google-generativeai==0.8.3
