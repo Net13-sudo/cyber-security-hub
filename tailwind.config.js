@@ -8,55 +8,55 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Primary Colors - Deep Security Blue
+        // Primary Colors - Dark Red/Crimson (security/danger theme)
         primary: {
-          DEFAULT: "#1E3A5F", // deep-security-blue
-          50: "#F0F4F8", // deep-security-blue-50
-          100: "#D9E2EC", // deep-security-blue-100
-          200: "#BCCCDC", // deep-security-blue-200
-          300: "#9FB3C8", // deep-security-blue-300
-          400: "#829AB1", // deep-security-blue-400
-          500: "#627D98", // deep-security-blue-500
-          600: "#486581", // deep-security-blue-600
-          700: "#334E68", // deep-security-blue-700
-          800: "#243B53", // deep-security-blue-800
-          900: "#1E3A5F", // deep-security-blue-900
+          DEFAULT: "#dc2626", // crimson-red
+          50: "#fef2f2", // crimson-50
+          100: "#fee2e2", // crimson-100
+          200: "#fecaca", // crimson-200
+          300: "#fca5a5", // crimson-300
+          400: "#f87171", // crimson-400
+          500: "#ef4444", // crimson-500
+          600: "#dc2626", // crimson-600
+          700: "#b91c1c", // crimson-700
+          800: "#991b1b", // crimson-800
+          900: "#7f1d1d", // crimson-900
         },
-        // Secondary Colors - Professional Charcoal
+        // Secondary Colors - Darker Grays/Black (background darkness)
         secondary: {
-          DEFAULT: "#2C3E50", // professional-charcoal
-          50: "#F7F8F9", // professional-charcoal-50
-          100: "#E8EAED", // professional-charcoal-100
-          200: "#D1D5DB", // professional-charcoal-200
-          300: "#9CA3AF", // professional-charcoal-300
-          400: "#6B7280", // professional-charcoal-400
-          500: "#4B5563", // professional-charcoal-500
-          600: "#374151", // professional-charcoal-600
-          700: "#2C3E50", // professional-charcoal-700
-          800: "#1F2937", // professional-charcoal-800
-          900: "#111827", // professional-charcoal-900
+          DEFAULT: "#000000", // pure-black
+          50: "#f9fafb", // gray-50
+          100: "#f3f4f6", // gray-100
+          200: "#e5e7eb", // gray-200
+          300: "#d1d5db", // gray-300
+          400: "#9ca3af", // gray-400
+          500: "#6b7280", // gray-500
+          600: "#374151", // gray-600
+          700: "#1f2937", // gray-700
+          800: "#0a0a0a", // near-black
+          900: "#050505", // pure-black
         },
-        // Accent Colors - Scorpion Gold
+        // Accent Colors - Dark Orange/Gold (warning/highlight theme)
         accent: {
-          DEFAULT: "#D4AF37", // scorpion-gold
-          50: "#FEFCF0", // scorpion-gold-50
-          100: "#FEF7CD", // scorpion-gold-100
-          200: "#FEEE9B", // scorpion-gold-200
-          300: "#FDE047", // scorpion-gold-300
-          400: "#FACC15", // scorpion-gold-400
-          500: "#EAB308", // scorpion-gold-500
-          600: "#D4AF37", // scorpion-gold-600
-          700: "#A16207", // scorpion-gold-700
-          800: "#854D0E", // scorpion-gold-800
-          900: "#713F12", // scorpion-gold-900
+          DEFAULT: "#f59e0b", // amber-500
+          50: "#fffbeb", // orange-50
+          100: "#fef3c7", // orange-100
+          200: "#fde68a", // orange-200
+          300: "#fcd34d", // orange-300
+          400: "#fbbf24", // orange-400
+          500: "#f59e0b", // orange-500
+          600: "#d97706", // orange-600
+          700: "#b45309", // orange-700
+          800: "#92400e", // orange-800
+          900: "#78350f", // orange-900
         },
         // Background Colors
-        background: "#FAFBFC", // clean-canvas
-        surface: "#F8F9FA", // subtle-elevation
+        background: "#050505", // deeper black
+        surface: "#0a0a0a", // dark surface
         // Text Colors
         text: {
-          primary: "#1A202C", // professional-clarity
-          secondary: "#4A5568", // supporting-information
+          primary: "#f8fafc", // slate-50
+          secondary: "#94a3b8", // slate-400
         },
         // Status Colors
         success: {
@@ -65,6 +65,7 @@ module.exports = {
           100: "#D1FAE5", // emerald-100
           500: "#10B981", // emerald-500
           600: "#059669", // emerald-600
+          700: "#047857", // emerald-700
         },
         warning: {
           DEFAULT: "#F59E0B", // amber-500
@@ -72,6 +73,7 @@ module.exports = {
           100: "#FEF3C7", // amber-100
           500: "#F59E0B", // amber-500
           600: "#D97706", // amber-600
+          700: "#B45309", // amber-700
         },
         error: {
           DEFAULT: "#EF4444", // red-500
@@ -79,11 +81,12 @@ module.exports = {
           100: "#FEE2E2", // red-100
           500: "#EF4444", // red-500
           600: "#DC2626", // red-600
+          700: "#B91C1C", // red-700
         },
         // Border Colors
         border: {
-          DEFAULT: "#E2E8F0", // slate-200
-          light: "#F1F5F9", // slate-100
+          DEFAULT: "#1e293b", // slate-800
+          light: "#334155", // slate-700
         },
       },
       fontFamily: {
@@ -105,17 +108,19 @@ module.exports = {
         '6xl': ['3.75rem', { lineHeight: '1.2' }],
       },
       boxShadow: {
-        'protective': '0 1px 3px rgba(0, 0, 0, 0.1)',
-        'elevated': '0 4px 12px rgba(0, 0, 0, 0.15)',
-        'critical': '0 10px 25px rgba(0, 0, 0, 0.1)',
-        'glow': '0 0 20px rgba(212, 175, 55, 0.3)',
-        'glow-strong': '0 0 30px rgba(212, 175, 55, 0.5)',
+        'protective': '0 1px 3px rgba(220, 38, 38, 0.1)',
+        'elevated': '0 4px 12px rgba(220, 38, 38, 0.15)',
+        'critical': '0 10px 25px rgba(220, 38, 38, 0.2)',
+        'glow': '0 0 20px rgba(234, 88, 12, 0.4)',
+        'glow-strong': '0 0 30px rgba(234, 88, 12, 0.6)',
+        'cyber-glow': '0 0 40px rgba(220, 38, 38, 0.5), 0 0 80px rgba(234, 88, 12, 0.3)',
       },
       animation: {
         'scan': 'scan 1200ms ease-out infinite',
         'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
         'fade-in': 'fadeIn 300ms ease-out',
         'slide-up': 'slideUp 300ms ease-out',
+        'cyber-pulse': 'cyber-pulse 3s ease-in-out infinite',
       },
       keyframes: {
         scan: {
@@ -130,10 +135,18 @@ module.exports = {
         },
         'pulse-glow': {
           '0%, 100%': {
-            boxShadow: '0 0 5px rgba(212, 175, 55, 0.5)',
+            boxShadow: '0 0 5px rgba(234, 88, 12, 0.5)',
           },
           '50%': {
-            boxShadow: '0 0 20px rgba(212, 175, 55, 0.8)',
+            boxShadow: '0 0 20px rgba(234, 88, 12, 0.8)',
+          },
+        },
+        'cyber-pulse': {
+          '0%, 100%': {
+            boxShadow: '0 0 10px rgba(220, 38, 38, 0.3), 0 0 20px rgba(234, 88, 12, 0.2)',
+          },
+          '50%': {
+            boxShadow: '0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(234, 88, 12, 0.4)',
           },
         },
         fadeIn: {

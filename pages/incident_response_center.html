@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emergency Incident Response Center - Scorpion Security Hub</title>
     <link rel="stylesheet" href="../css/main.css" />
+    <script src="../js/config.js"></script>
+    <script src="../js/navigation.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fscorpions9261back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+    <script type="module"
+        src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fscorpions9261back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
 </head>
+
 <body class="bg-background text-text-primary">
     <!-- Navigation Header -->
     <nav class="bg-white shadow-protective sticky top-0 z-50">
@@ -18,8 +23,9 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
                         <svg class="h-10 w-10 text-accent" viewBox="0 0 40 40" fill="currentColor">
-                            <path d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z"/>
-                            <circle cx="20" cy="18" r="6" fill="white"/>
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                            <circle cx="20" cy="18" r="6" fill="white" />
                         </svg>
                     </div>
                     <div class="ml-3">
@@ -31,18 +37,32 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="security_command_homepage.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="security_command_homepage.html"
+                            class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <div class="relative group">
-                            <button class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Services</button>
-                            <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-elevated opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                                <a href="penetration_testing_lab.html" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Penetration Testing</a>
-                                <a href="compliance_solutions.html" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Compliance Solutions</a>
+                            <button
+                                class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Services</button>
+                            <div
+                                class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-elevated opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                <a href="penetration_testing_lab.html"
+                                    class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Penetration
+                                    Testing</a>
+                                <a href="compliance_solutions.html"
+                                    class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Compliance
+                                    Solutions</a>
                             </div>
                         </div>
-                        <a href="threat_intelligence_center.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Threat Intelligence</a>
-                        <a href="portfolio.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
-                        <a href="client_security_portal.html" class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Client Portal</a>
-                        <a href="incident_response_center.html" class="bg-error text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-error-600 transition-colors">Emergency Response</a>
+                        <a href="threat_intelligence_center.html"
+                            class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Threat
+                            Intelligence</a>
+                        <a href="portfolio.html"
+                            class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Portfolio</a>
+                        <a href="client_security_portal.html"
+                            class="text-text-secondary hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Client
+                            Portal</a>
+                        <a href="incident_response_center.html"
+                            class="bg-error text-white px-4 py-2 rounded-md text-sm font-semibold hover:bg-error-600 transition-colors">Emergency
+                            Response</a>
                     </div>
                 </div>
 
@@ -50,7 +70,8 @@
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-text-secondary hover:text-primary p-2">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                 </div>
@@ -60,13 +81,25 @@
         <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-border">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="security_command_homepage.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
-                <a href="penetration_testing_lab.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Penetration Testing</a>
-                <a href="compliance_solutions.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Compliance Solutions</a>
-                <a href="threat_intelligence_center.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Threat Intelligence</a>
-                <a href="portfolio.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Portfolio</a>
-                <a href="client_security_portal.html" class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Client Portal</a>
-                <a href="incident_response_center.html" class="bg-error text-white block px-3 py-2 rounded-md text-base font-semibold">Emergency Response</a>
+                <a href="security_command_homepage.html"
+                    class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Home</a>
+                <a href="penetration_testing_lab.html"
+                    class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Penetration
+                    Testing</a>
+                <a href="compliance_solutions.html"
+                    class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Compliance
+                    Solutions</a>
+                <a href="threat_intelligence_center.html"
+                    class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Threat
+                    Intelligence</a>
+                <a href="portfolio.html"
+                    class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Portfolio</a>
+                <a href="client_security_portal.html"
+                    class="text-text-secondary hover:text-primary block px-3 py-2 rounded-md text-base">Client
+                    Portal</a>
+                <a href="incident_response_center.html"
+                    class="bg-error text-white block px-3 py-2 rounded-md text-base font-semibold">Emergency
+                    Response</a>
             </div>
         </div>
     </nav>
@@ -76,7 +109,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-center text-sm font-medium">
                 <svg class="w-4 h-4 mr-2 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                    <path fill-rule="evenodd"
+                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                        clip-rule="evenodd" />
                 </svg>
                 24/7 Emergency Response Team Available - Response Time: Under 15 Minutes
             </div>
@@ -84,10 +119,18 @@
     </div>
 
     <!-- Hero Section - Emergency Contact -->
-    <section class="relative bg-gradient-to-br from-error-900 via-error-800 to-secondary-900 text-white overflow-hidden">
+    <section
+        class="relative bg-gradient-to-br from-error-900 via-error-800 to-secondary-900 text-white overflow-hidden">
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width=" 60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><polygon points="30,0 52,15 52,45 30,60 8,45 8,15"></polygon></g>'); background-size: 60px 60px;"></g></div>
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg width=" 60" height="60"
+                viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" fill-rule="evenodd">
+                    <g fill="%23ffffff" fill-opacity="0.1">
+                        <polygon points="30,0 52,15 52,45 30,60 8,45 8,15"></polygon>
+                    </g>'); background-size: 60px 60px;">
+                </g>
+            </div>
         </div>
 
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -95,7 +138,8 @@
                 <!-- Emergency Contact Content -->
                 <div class="space-y-8">
                     <div class="space-y-4">
-                        <div class="inline-flex items-center px-4 py-2 bg-error/20 rounded-full text-error-100 text-sm font-medium">
+                        <div
+                            class="inline-flex items-center px-4 py-2 bg-error/20 rounded-full text-error-100 text-sm font-medium">
                             <div class="w-2 h-2 bg-error-300 rounded-full mr-2 pulse-glow"></div>
                             Emergency Response Active
                         </div>
@@ -104,7 +148,8 @@
                             <span class="text-accent">We Respond in Minutes</span>
                         </h1>
                         <p class="text-xl text-error-100 max-w-lg">
-                            Immediate cybersecurity incident response with expert forensics, containment, and recovery. Every second counts in a security breach.
+                            Immediate cybersecurity incident response with expert forensics, containment, and recovery.
+                            Every second counts in a security breach.
                         </p>
                     </div>
 
@@ -128,21 +173,27 @@
                     <div class="space-y-4">
                         <h3 class="text-lg font-semibold text-error-100">Emergency Contact Methods</h3>
                         <div class="grid sm:grid-cols-3 gap-4">
-                            <a href="tel:+15551234567" class="flex items-center justify-center px-6 py-4 bg-error text-white rounded-lg hover:bg-error-600 transition-colors font-semibold">
+                            <a href="tel:+15551234567"
+                                class="flex items-center justify-center px-6 py-4 bg-error text-white rounded-lg hover:bg-error-600 transition-colors font-semibold">
                                 <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                                 Call Now
                             </a>
-                            <button class="flex items-center justify-center px-6 py-4 bg-accent text-white rounded-lg hover:bg-accent-700 transition-colors font-semibold">
+                            <button
+                                class="flex items-center justify-center px-6 py-4 bg-accent text-white rounded-lg hover:bg-accent-700 transition-colors font-semibold">
                                 <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                 </svg>
                                 Secure Chat
                             </button>
-                            <a href="mailto:emergency@scorpion.com" class="flex items-center justify-center px-6 py-4 bg-secondary text-white rounded-lg hover:bg-secondary-600 transition-colors font-semibold">
+                            <a href="mailto:emergency@scorpion.com"
+                                class="flex items-center justify-center px-6 py-4 bg-secondary text-white rounded-lg hover:bg-secondary-600 transition-colors font-semibold">
                                 <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 Email
                             </a>
@@ -160,7 +211,7 @@
                                 Available
                             </div>
                         </div>
-                        
+
                         <!-- Team Availability -->
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
@@ -202,14 +253,19 @@
                 <!-- Step 1: Contain -->
                 <div class="relative">
                     <div class="card-elevated text-center group hover:shadow-critical transition-all duration-300">
-                        <div class="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-error/20 transition-colors">
+                        <div
+                            class="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-error/20 transition-colors">
                             <svg class="w-8 h-8 text-error" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -left-2 w-8 h-8 bg-error text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                        <div
+                            class="absolute -top-2 -left-2 w-8 h-8 bg-error text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            1</div>
                         <h3 class="text-xl font-semibold text-primary mb-3">Contain</h3>
-                        <p class="text-text-secondary mb-4">Immediate threat isolation and damage limitation within 15 minutes of contact.</p>
+                        <p class="text-text-secondary mb-4">Immediate threat isolation and damage limitation within 15
+                            minutes of contact.</p>
                         <ul class="text-sm text-text-secondary space-y-1">
                             <li>• Network segmentation</li>
                             <li>• System isolation</li>
@@ -221,14 +277,19 @@
                 <!-- Step 2: Investigate -->
                 <div class="relative">
                     <div class="card-elevated text-center group hover:shadow-critical transition-all duration-300">
-                        <div class="w-16 h-16 bg-warning/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-warning/20 transition-colors">
+                        <div
+                            class="w-16 h-16 bg-warning/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-warning/20 transition-colors">
                             <svg class="w-8 h-8 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -left-2 w-8 h-8 bg-warning text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                        <div
+                            class="absolute -top-2 -left-2 w-8 h-8 bg-warning text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            2</div>
                         <h3 class="text-xl font-semibold text-primary mb-3">Investigate</h3>
-                        <p class="text-text-secondary mb-4">Forensic analysis to determine attack vectors and scope of compromise.</p>
+                        <p class="text-text-secondary mb-4">Forensic analysis to determine attack vectors and scope of
+                            compromise.</p>
                         <ul class="text-sm text-text-secondary space-y-1">
                             <li>• Digital forensics</li>
                             <li>• Evidence preservation</li>
@@ -240,14 +301,19 @@
                 <!-- Step 3: Eradicate -->
                 <div class="relative">
                     <div class="card-elevated text-center group hover:shadow-critical transition-all duration-300">
-                        <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                        <div
+                            class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
                             <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -left-2 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                        <div
+                            class="absolute -top-2 -left-2 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            3</div>
                         <h3 class="text-xl font-semibold text-primary mb-3">Eradicate</h3>
-                        <p class="text-text-secondary mb-4">Complete removal of threats and vulnerabilities from all systems.</p>
+                        <p class="text-text-secondary mb-4">Complete removal of threats and vulnerabilities from all
+                            systems.</p>
                         <ul class="text-sm text-text-secondary space-y-1">
                             <li>• Malware removal</li>
                             <li>• Vulnerability patching</li>
@@ -259,14 +325,19 @@
                 <!-- Step 4: Recover -->
                 <div class="relative">
                     <div class="card-elevated text-center group hover:shadow-critical transition-all duration-300">
-                        <div class="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-success/20 transition-colors">
+                        <div
+                            class="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-success/20 transition-colors">
                             <svg class="w-8 h-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
                         </div>
-                        <div class="absolute -top-2 -left-2 w-8 h-8 bg-success text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                        <div
+                            class="absolute -top-2 -left-2 w-8 h-8 bg-success text-white rounded-full flex items-center justify-center font-bold text-sm">
+                            4</div>
                         <h3 class="text-xl font-semibold text-primary mb-3">Recover</h3>
-                        <p class="text-text-secondary mb-4">Secure restoration of operations with enhanced monitoring and protection.</p>
+                        <p class="text-text-secondary mb-4">Secure restoration of operations with enhanced monitoring
+                            and protection.</p>
                         <ul class="text-sm text-text-secondary space-y-1">
                             <li>• System restoration</li>
                             <li>• Enhanced monitoring</li>
@@ -292,7 +363,8 @@
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-error/10 rounded-lg flex items-center justify-center mr-4">
                             <svg class="w-6 h-6 text-error" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
                             </svg>
                         </div>
                         <div>
@@ -315,7 +387,8 @@
                         </div>
                     </div>
                     <div class="mt-4 pt-4 border-t border-border">
-                        <p class="text-xs text-text-secondary">Active data breach, ransomware, or system compromise affecting critical operations</p>
+                        <p class="text-xs text-text-secondary">Active data breach, ransomware, or system compromise
+                            affecting critical operations</p>
                     </div>
                 </div>
 
@@ -324,7 +397,8 @@
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center mr-4">
                             <svg class="w-6 h-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
                         <div>
@@ -347,7 +421,8 @@
                         </div>
                     </div>
                     <div class="mt-4 pt-4 border-t border-border">
-                        <p class="text-xs text-text-secondary">Suspected breach, malware detection, or significant security alerts</p>
+                        <p class="text-xs text-text-secondary">Suspected breach, malware detection, or significant
+                            security alerts</p>
                     </div>
                 </div>
 
@@ -356,7 +431,8 @@
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
                             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
                         <div>
@@ -379,7 +455,8 @@
                         </div>
                     </div>
                     <div class="mt-4 pt-4 border-t border-border">
-                        <p class="text-xs text-text-secondary">Security questions, policy violations, or preventive consultations</p>
+                        <p class="text-xs text-text-secondary">Security questions, policy violations, or preventive
+                            consultations</p>
                     </div>
                 </div>
             </div>
@@ -394,55 +471,64 @@
                 <div class="space-y-6">
                     <div>
                         <h2 class="text-3xl font-bold text-primary mb-4">Digital Forensics & Evidence Preservation</h2>
-                        <p class="text-lg text-text-secondary">Court-admissible evidence collection and analysis with full legal compliance support.</p>
+                        <p class="text-lg text-text-secondary">Court-admissible evidence collection and analysis with
+                            full legal compliance support.</p>
                     </div>
 
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center mr-4 mt-1">
                                 <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-primary mb-1">Chain of Custody</h3>
-                                <p class="text-text-secondary text-sm">Legally compliant evidence handling from collection to court presentation</p>
+                                <p class="text-text-secondary text-sm">Legally compliant evidence handling from
+                                    collection to court presentation</p>
                             </div>
                         </div>
 
                         <div class="flex items-start">
                             <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center mr-4 mt-1">
                                 <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-primary mb-1">Memory & Disk Analysis</h3>
-                                <p class="text-text-secondary text-sm">Advanced forensic tools for comprehensive system analysis and data recovery</p>
+                                <p class="text-text-secondary text-sm">Advanced forensic tools for comprehensive system
+                                    analysis and data recovery</p>
                             </div>
                         </div>
 
                         <div class="flex items-start">
                             <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center mr-4 mt-1">
                                 <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-primary mb-1">Network Traffic Analysis</h3>
-                                <p class="text-text-secondary text-sm">Deep packet inspection and network forensics to trace attack vectors</p>
+                                <p class="text-text-secondary text-sm">Deep packet inspection and network forensics to
+                                    trace attack vectors</p>
                             </div>
                         </div>
 
                         <div class="flex items-start">
                             <div class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center mr-4 mt-1">
                                 <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
                             </div>
                             <div>
                                 <h3 class="font-semibold text-primary mb-1">Expert Testimony</h3>
-                                <p class="text-text-secondary text-sm">Certified forensics experts available for legal proceedings and depositions</p>
+                                <p class="text-text-secondary text-sm">Certified forensics experts available for legal
+                                    proceedings and depositions</p>
                             </div>
                         </div>
                     </div>
@@ -454,13 +540,17 @@
 
                 <!-- Forensics Visualization -->
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Digital forensics investigation" class="w-full h-96 object-cover rounded-2xl" onerror="this.src='https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
-                    
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3"
+                        alt="Digital forensics investigation" class="w-full h-96 object-cover rounded-2xl"
+                        onerror="this.src='https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+
                     <!-- Overlay with forensics tools -->
                     <div class="absolute inset-0 bg-primary/80 rounded-2xl flex items-center justify-center">
                         <div class="text-center text-white">
-                            <svg class="w-16 h-16 mx-auto mb-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            <svg class="w-16 h-16 mx-auto mb-4 text-accent" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
                             <h3 class="text-xl font-semibold mb-2">Advanced Forensics Lab</h3>
                             <p class="text-primary-200">State-of-the-art tools and certified experts</p>
@@ -476,7 +566,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Recovery Planning & Business Continuity</h2>
-                <p class="text-lg text-text-secondary">Minimize downtime with proven recovery strategies and RTO/RPO commitments</p>
+                <p class="text-lg text-text-secondary">Minimize downtime with proven recovery strategies and RTO/RPO
+                    commitments</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 mb-12">
@@ -486,15 +577,18 @@
                     <div class="space-y-4">
                         <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg">
                             <span class="text-text-secondary">Critical Systems</span>
-                            <span class="font-semibold text-success">< 4 hours</span>
+                            <span class="font-semibold text-success">
+                                < 4 hours</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-warning-50 rounded-lg">
                             <span class="text-text-secondary">Business Applications</span>
-                            <span class="font-semibold text-warning">< 24 hours</span>
+                            <span class="font-semibold text-warning">
+                                < 24 hours</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-primary-50 rounded-lg">
                             <span class="text-text-secondary">Supporting Systems</span>
-                            <span class="font-semibold text-primary">< 72 hours</span>
+                            <span class="font-semibold text-primary">
+                                < 72 hours</span>
                         </div>
                     </div>
                 </div>
@@ -504,23 +598,33 @@
                     <h3 class="text-xl font-semibold text-primary mb-4">Recovery Process</h3>
                     <div class="space-y-3">
                         <div class="flex items-center">
-                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">1</div>
+                            <div
+                                class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">
+                                1</div>
                             <span class="text-text-secondary">Damage assessment and prioritization</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">2</div>
+                            <div
+                                class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">
+                                2</div>
                             <span class="text-text-secondary">Clean system restoration from backups</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">3</div>
+                            <div
+                                class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">
+                                3</div>
                             <span class="text-text-secondary">Security hardening and monitoring</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">4</div>
+                            <div
+                                class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">
+                                4</div>
                             <span class="text-text-secondary">Gradual service restoration</span>
                         </div>
                         <div class="flex items-center">
-                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">5</div>
+                            <div
+                                class="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white text-xs font-bold mr-3">
+                                5</div>
                             <span class="text-text-secondary">Post-incident review and improvements</span>
                         </div>
                     </div>
@@ -532,31 +636,37 @@
                 <div class="text-center">
                     <div class="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-primary mb-2">Backup Validation</h3>
-                    <p class="text-text-secondary text-sm">Regular testing ensures backup integrity and rapid restoration capability</p>
+                    <p class="text-text-secondary text-sm">Regular testing ensures backup integrity and rapid
+                        restoration capability</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-primary mb-2">Rapid Deployment</h3>
-                    <p class="text-text-secondary text-sm">Pre-configured recovery environments for immediate system restoration</p>
+                    <p class="text-text-secondary text-sm">Pre-configured recovery environments for immediate system
+                        restoration</p>
                 </div>
 
                 <div class="text-center">
                     <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                     </div>
                     <h3 class="text-lg font-semibold text-primary mb-2">Performance Monitoring</h3>
-                    <p class="text-text-secondary text-sm">Continuous monitoring ensures optimal performance during recovery</p>
+                    <p class="text-text-secondary text-sm">Continuous monitoring ensures optimal performance during
+                        recovery</p>
                 </div>
             </div>
         </div>
@@ -574,7 +684,9 @@
                 <!-- Healthcare Crisis -->
                 <div class="card-elevated">
                     <div class="flex items-center mb-4">
-                        <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Healthcare CTO" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            alt="Healthcare CTO" class="w-12 h-12 rounded-full object-cover mr-4"
+                            onerror="this.src='https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
                         <div>
                             <h3 class="font-semibold text-primary">Dr. Sarah Chen</h3>
                             <p class="text-sm text-text-secondary">CTO, Regional Medical Center</p>
@@ -591,11 +703,14 @@
                         </div>
                     </div>
                     <blockquote class="text-text-secondary italic mb-4">
-                        "At 2 AM on a Sunday, our systems were encrypted by ransomware. Scorpion's team was on-site within 11 minutes and had us operational again in 6 hours. Their calm professionalism during the crisis was exactly what we needed. Patient care was never compromised."
+                        "At 2 AM on a Sunday, our systems were encrypted by ransomware. Scorpion's team was on-site
+                        within 11 minutes and had us operational again in 6 hours. Their calm professionalism during the
+                        crisis was exactly what we needed. Patient care was never compromised."
                     </blockquote>
                     <div class="flex items-center text-sm text-accent">
                         <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                         Zero downtime, full recovery
                     </div>
@@ -604,7 +719,9 @@
                 <!-- Financial Crisis -->
                 <div class="card-elevated">
                     <div class="flex items-center mb-4">
-                        <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Bank CISO" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                            alt="Bank CISO" class="w-12 h-12 rounded-full object-cover mr-4"
+                            onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
                         <div>
                             <h3 class="font-semibold text-primary">Michael Rodriguez</h3>
                             <p class="text-sm text-text-secondary">CISO, First National Bank</p>
@@ -621,11 +738,15 @@
                         </div>
                     </div>
                     <blockquote class="text-text-secondary italic mb-4">
-                        "We detected unusual network activity at 3 PM on Friday. Scorpion's incident commander was coordinating our response within 8 minutes. They identified and contained an advanced persistent threat that had been dormant for weeks. Their forensics work was crucial for regulatory reporting."
+                        "We detected unusual network activity at 3 PM on Friday. Scorpion's incident commander was
+                        coordinating our response within 8 minutes. They identified and contained an advanced persistent
+                        threat that had been dormant for weeks. Their forensics work was crucial for regulatory
+                        reporting."
                     </blockquote>
                     <div class="flex items-center text-sm text-accent">
                         <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                         Threat eliminated, compliance maintained
                     </div>
@@ -696,14 +817,16 @@
                                 <span class="text-xl font-bold text-success" id="cost-with">$850K</span>
                             </div>
 
-                            <div class="flex justify-between items-center p-4 bg-accent-50 rounded-lg border-2 border-accent">
+                            <div
+                                class="flex justify-between items-center p-4 bg-accent-50 rounded-lg border-2 border-accent">
                                 <span class="text-text-secondary font-semibold">Potential Savings</span>
                                 <span class="text-2xl font-bold text-accent" id="savings">$1.55M</span>
                             </div>
                         </div>
 
                         <div class="text-center pt-4">
-                            <p class="text-sm text-text-secondary">Based on industry averages and response time impact studies</p>
+                            <p class="text-sm text-text-secondary">Based on industry averages and response time impact
+                                studies</p>
                         </div>
                     </div>
                 </div>
@@ -730,25 +853,33 @@
                     <ul class="space-y-3 mb-6">
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Priority response queue
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             24/7 emergency hotline
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             4 hours included monthly
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Basic forensics support
                         </li>
@@ -759,7 +890,8 @@
                 <!-- Professional -->
                 <div class="card-elevated border-2 border-accent relative">
                     <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-accent text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                        <span class="bg-accent text-white px-4 py-1 rounded-full text-sm font-semibold">Most
+                            Popular</span>
                     </div>
                     <div class="text-center mb-6">
                         <h3 class="text-xl font-semibold text-primary mb-2">Professional</h3>
@@ -769,31 +901,41 @@
                     <ul class="space-y-3 mb-6">
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Dedicated incident commander
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             15-minute response guarantee
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             12 hours included monthly
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Advanced forensics & legal support
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Quarterly tabletop exercises
                         </li>
@@ -811,31 +953,41 @@
                     <ul class="space-y-3 mb-6">
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Dedicated response team
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             10-minute response guarantee
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Unlimited response hours
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Full forensics lab access
                         </li>
                         <li class="flex items-center text-sm">
                             <svg class="w-4 h-4 text-success mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd" />
                             </svg>
                             Custom playbook development
                         </li>
@@ -851,7 +1003,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-primary mb-4">Legal & Compliance Support</h2>
-                <p class="text-lg text-text-secondary">Specialized support for regulated industries and legal requirements</p>
+                <p class="text-lg text-text-secondary">Specialized support for regulated industries and legal
+                    requirements</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -859,7 +1012,8 @@
                 <div class="card text-center">
                     <div class="w-12 h-12 bg-success/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                     </div>
                     <h3 class="font-semibold text-primary mb-2">HIPAA</h3>
@@ -870,7 +1024,8 @@
                 <div class="card text-center">
                     <div class="w-12 h-12 bg-warning/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                         </svg>
                     </div>
                     <h3 class="font-semibold text-primary mb-2">SOX</h3>
@@ -881,7 +1036,8 @@
                 <div class="card text-center">
                     <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
                         </svg>
                     </div>
                     <h3 class="font-semibold text-primary mb-2">GDPR</h3>
@@ -892,7 +1048,8 @@
                 <div class="card text-center">
                     <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                         </svg>
                     </div>
                     <h3 class="font-semibold text-primary mb-2">PCI DSS</h3>
@@ -909,16 +1066,21 @@
     <!-- Emergency Contact Widget (Floating) -->
     <div class="fixed bottom-6 right-6 z-50">
         <div class="relative group">
-            <a href="tel:+15551234567" class="w-16 h-16 bg-error text-white rounded-full shadow-critical hover:shadow-glow transition-all duration-300 flex items-center justify-center pulse-glow">
+            <a href="tel:+15551234567"
+                class="w-16 h-16 bg-error text-white rounded-full shadow-critical hover:shadow-glow transition-all duration-300 flex items-center justify-center pulse-glow">
                 <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
             </a>
-            
+
             <!-- Tooltip -->
-            <div class="absolute bottom-full right-0 mb-2 px-3 py-2 bg-secondary text-white text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap">
+            <div
+                class="absolute bottom-full right-0 mb-2 px-3 py-2 bg-secondary text-white text-sm rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap">
                 Emergency Hotline
-                <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-secondary"></div>
+                <div
+                    class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-secondary">
+                </div>
             </div>
         </div>
     </div>
@@ -931,8 +1093,9 @@
                 <div class="col-span-1">
                     <div class="flex items-center mb-4">
                         <svg class="h-8 w-8 text-accent mr-3" viewBox="0 0 40 40" fill="currentColor">
-                            <path d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z"/>
-                            <circle cx="20" cy="18" r="6" fill="white"/>
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                            <circle cx="20" cy="18" r="6" fill="white" />
                         </svg>
                         <div>
                             <h3 class="text-lg font-bold">Scorpion Security</h3>
@@ -945,17 +1108,22 @@
                     <div class="flex space-x-4">
                         <a href="javascript:void(0)" class="text-secondary-400 hover:text-accent transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z"
+                                    clip-rule="evenodd" />
                             </svg>
                         </a>
                         <a href="javascript:void(0)" class="text-secondary-400 hover:text-accent transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+                                <path
+                                    d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
                             </svg>
                         </a>
                         <a href="javascript:void(0)" class="text-secondary-400 hover:text-accent transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd"
+                                    d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+                                    clip-rule="evenodd" />
                             </svg>
                         </a>
                     </div>
@@ -965,11 +1133,20 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="penetration_testing_lab.html" class="text-secondary-300 hover:text-accent transition-colors">Penetration Testing</a></li>
-                        <li><a href="incident_response_center.html" class="text-secondary-300 hover:text-accent transition-colors">Incident Response</a></li>
-                        <li><a href="compliance_solutions.html" class="text-secondary-300 hover:text-accent transition-colors">Compliance Solutions</a></li>
-                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-colors">Managed Security</a></li>
-                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-colors">Security Training</a></li>
+                        <li><a href="penetration_testing_lab.html"
+                                class="text-secondary-300 hover:text-accent transition-colors">Penetration Testing</a>
+                        </li>
+                        <li><a href="incident_response_center.html"
+                                class="text-secondary-300 hover:text-accent transition-colors">Incident Response</a>
+                        </li>
+                        <li><a href="compliance_solutions.html"
+                                class="text-secondary-300 hover:text-accent transition-colors">Compliance Solutions</a>
+                        </li>
+                        <li><a href="javascript:void(0)"
+                                class="text-secondary-300 hover:text-accent transition-colors">Managed Security</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="text-secondary-300 hover:text-accent transition-colors">Security Training</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -977,11 +1154,17 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="threat_intelligence_center.html" class="text-secondary-300 hover:text-accent transition-colors">Threat Intelligence</a></li>
-                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-colors">Security Blog</a></li>
-                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-colors">Case Studies</a></li>
-                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-colors">Whitepapers</a></li>
-                        <li><a href="javascript:void(0)" class="text-secondary-300 hover:text-accent transition-colors">Webinars</a></li>
+                        <li><a href="threat_intelligence_center.html"
+                                class="text-secondary-300 hover:text-accent transition-colors">Threat Intelligence</a>
+                        </li>
+                        <li><a href="javascript:void(0)"
+                                class="text-secondary-300 hover:text-accent transition-colors">Security Blog</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="text-secondary-300 hover:text-accent transition-colors">Case Studies</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="text-secondary-300 hover:text-accent transition-colors">Whitepapers</a></li>
+                        <li><a href="javascript:void(0)"
+                                class="text-secondary-300 hover:text-accent transition-colors">Webinars</a></li>
                     </ul>
                 </div>
 
@@ -991,28 +1174,34 @@
                     <ul class="space-y-2 text-sm">
                         <li class="flex items-center text-secondary-300">
                             <svg class="w-4 h-4 mr-2 text-error" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                             +1 (555) 123-HELP
                         </li>
                         <li class="flex items-center text-secondary-300">
                             <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                             emergency@scorpion.com
                         </li>
                         <li class="flex items-start text-secondary-300">
                             <svg class="w-4 h-4 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                             24/7 Response Center<br />Available Worldwide
                         </li>
                     </ul>
                     <div class="mt-4">
-                        <a href="tel:+15551234567" class="inline-flex items-center px-4 py-2 bg-error text-white text-sm font-semibold rounded-lg hover:bg-error-600 transition-colors">
+                        <a href="tel:+15551234567"
+                            class="inline-flex items-center px-4 py-2 bg-error text-white text-sm font-semibold rounded-lg hover:bg-error-600 transition-colors">
                             <svg class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
                             </svg>
                             Emergency Hotline
                         </a>
@@ -1023,9 +1212,12 @@
             <div class="border-t border-secondary-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-secondary-400 text-sm">© 2025 Scorpion Security Hub. All Rights Reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="javascript:void(0)" class="text-secondary-400 hover:text-accent text-sm transition-colors">Privacy Policy</a>
-                    <a href="javascript:void(0)" class="text-secondary-400 hover:text-accent text-sm transition-colors">Terms of Service</a>
-                    <a href="javascript:void(0)" class="text-secondary-400 hover:text-accent text-sm transition-colors">Cookie Policy</a>
+                    <a href="javascript:void(0)"
+                        class="text-secondary-400 hover:text-accent text-sm transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)"
+                        class="text-secondary-400 hover:text-accent text-sm transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)"
+                        class="text-secondary-400 hover:text-accent text-sm transition-colors">Cookie Policy</a>
                 </div>
             </div>
         </div>
@@ -1033,20 +1225,20 @@
 
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
         });
 
         // Breach Cost Calculator
-        document.getElementById('calculate-cost').addEventListener('click', function() {
+        document.getElementById('calculate-cost').addEventListener('click', function () {
             const companySize = document.getElementById('company-size').value;
             const industry = document.getElementById('industry').value;
             const dataSensitivity = document.getElementById('data-sensitivity').value;
 
             // Base costs by company size
             let baseCost = 0;
-            switch(companySize) {
+            switch (companySize) {
                 case 'small': baseCost = 500000; break;
                 case 'medium': baseCost = 1500000; break;
                 case 'large': baseCost = 4000000; break;
@@ -1054,7 +1246,7 @@
 
             // Industry multipliers
             let industryMultiplier = 1;
-            switch(industry) {
+            switch (industry) {
                 case 'healthcare': industryMultiplier = 1.8; break;
                 case 'financial': industryMultiplier = 1.6; break;
                 case 'retail': industryMultiplier = 1.2; break;
@@ -1065,7 +1257,7 @@
 
             // Data sensitivity multipliers
             let dataMultiplier = 1;
-            switch(dataSensitivity) {
+            switch (dataSensitivity) {
                 case 'low': dataMultiplier = 0.7; break;
                 case 'medium': dataMultiplier = 1.0; break;
                 case 'high': dataMultiplier = 1.5; break;
@@ -1076,12 +1268,12 @@
             const savings = costWithout - costWith;
 
             const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-KE', {
-        style: 'currency',
-        currency: 'KES',
-        minimumFractionDigits: 0
-    }).format(amount);
-};
+                return new Intl.NumberFormat('en-KE', {
+                    style: 'currency',
+                    currency: 'KES',
+                    minimumFractionDigits: 0
+                }).format(amount);
+            };
 
             document.getElementById('cost-without').textContent = formatCurrency(costWithout);
             document.getElementById('cost-with').textContent = formatCurrency(costWith);
@@ -1099,11 +1291,15 @@
         setInterval(updateResponseTimes, 30000);
 
         // Initialize calculator with default values
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('calculate-cost').click();
         });
     </script>
-<script src="../js/ai-widget.js"></script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script src="../js/ai-widget.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+
+    <!-- Incident Response Integration -->
+    <script src="../js/incident-response.js"></script>
 </body>
+
 </html>

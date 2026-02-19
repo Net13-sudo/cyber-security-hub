@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penetration Testing & Ethical Hacking - Scorpion Security</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-surface: #1a1a1a;
+            --dark-card: #2a2a2a;
+            --dark-border: #3a3a3a;
+            --accent-orange: #ff6b35;
+            --accent-red: #dc2626;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        body { background: var(--dark-bg); color: var(--text-light); }
+        .dark-nav { background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--dark-border); }
+        .dark-card { background: var(--dark-card); border: 1px solid var(--dark-border); }
+        .dark-surface { background: var(--dark-surface); }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="dark-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="security_command_homepage.html" class="flex items-center">
+                        <svg class="h-8 w-8 text-orange-400 mr-2" viewBox="0 0 40 40" fill="currentColor">
+                            <path d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                        </svg>
+                        <span class="text-xl font-bold text-white">Scorpion Security</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="security_command_homepage.html" class="text-gray-300 hover:text-white">Home</a>
+                    <a href="#" class="text-orange-400 font-semibold">Services</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white">About</a>
+                    <a href="contact.html" class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-gray-900 via-black to-gray-800 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold text-white mb-6">
+                    Penetration Testing &
+                    <span class="text-red-400">Ethical Hacking</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Identify vulnerabilities before malicious actors do. Our certified ethical hackers simulate real-world attacks to strengthen your security posture.
+                </p>
+                <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                    Schedule Penetration Test
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testing Types -->
+    <section class="py-20 dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Comprehensive Testing Methodologies</h2>
+                <p class="text-xl text-gray-400">Multiple approaches to uncover vulnerabilities across your entire infrastructure</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Network Penetration Testing -->
+                <div class="dark-card rounded-xl p-6 hover:border-red-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h6m-7 8a2 2 0 002 2v4a2 2 0 002 2h6a2 2 0 002-2v-4a2 2 0 002-2m-7 8V8a2 2 0 012-2h4a2 2 0 012 2v8a2 2 0 01-2 2h-4a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Network Penetration Testing</h3>
+                    <p class="text-gray-400 mb-4">Comprehensive assessment of network infrastructure, firewalls, and network devices to identify security gaps.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• External network testing</li>
+                        <li>• Internal network assessment</li>
+                        <li>• Wireless network security</li>
+                        <li>• Firewall configuration review</li>
+                    </ul>
+                </div>
+
+                <!-- Web Application Testing -->
+                <div class="dark-card rounded-xl p-6 hover:border-red-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Web Application Testing</h3>
+                    <p class="text-gray-400 mb-4">In-depth security assessment of web applications following OWASP Top 10 methodology.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• SQL injection testing</li>
+                        <li>• Cross-site scripting (XSS)</li>
+                        <li>• Authentication bypass</li>
+                        <li>• Business logic flaws</li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Application Testing -->
+                <div class="dark-card rounded-xl p-6 hover:border-red-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a1 1 0 001-1V4a1 1 0 00-1-1H8a1 1 0 00-1 1v16a1 1 0 001 1z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Mobile Application Testing</h3>
+                    <p class="text-gray-400 mb-4">Security assessment of iOS and Android applications including static and dynamic analysis.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Static code analysis</li>
+                        <li>• Dynamic runtime testing</li>
+                        <li>• API security assessment</li>
+                        <li>• Data storage security</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Security Testing -->
+                <div class="dark-card rounded-xl p-6 hover:border-red-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Cloud Security Testing</h3>
+                    <p class="text-gray-400 mb-4">Assessment of cloud infrastructure configurations and security controls across AWS, Azure, and GCP.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• IAM configuration review</li>
+                        <li>• Storage bucket security</li>
+                        <li>• Network security groups</li>
+                        <li>• Container security</li>
+                    </ul>
+                </div>
+
+                <!-- Social Engineering -->
+                <div class="dark-card rounded-xl p-6 hover:border-red-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Social Engineering</h3>
+                    <p class="text-gray-400 mb-4">Human-focused security testing including phishing campaigns and physical security assessments.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Phishing simulations</li>
+                        <li>• Vishing (voice phishing)</li>
+                        <li>• Physical security testing</li>
+                        <li>• USB drop attacks</li>
+                    </ul>
+                </div>
+
+                <!-- Red Team Exercises -->
+                <div class="dark-card rounded-xl p-6 hover:border-red-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 bg-yellow-600/20 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Red Team Exercises</h3>
+                    <p class="text-gray-400 mb-4">Advanced persistent threat simulation to test your organization's detection and response capabilities.</p>
+                    <ul class="text-sm text-gray-500 space-y-1">
+                        <li>• Multi-vector attacks</li>
+                        <li>• Stealth techniques</li>
+                        <li>• Lateral movement</li>
+                        <li>• Data exfiltration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Our Testing Process</h2>
+                <p class="text-xl text-gray-400">Systematic approach ensuring comprehensive coverage and actionable results</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-red-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-red-400">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Planning & Scoping</h3>
+                    <p class="text-gray-400">Define objectives, scope, and rules of engagement with stakeholders.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-orange-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-orange-400">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Reconnaissance</h3>
+                    <p class="text-gray-400">Gather intelligence about target systems and identify potential attack vectors.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-yellow-400">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Exploitation</h3>
+                    <p class="text-gray-400">Attempt to exploit identified vulnerabilities to demonstrate real-world impact.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-green-400">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Reporting</h3>
+                    <p class="text-gray-400">Deliver comprehensive report with findings, risk ratings, and remediation guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="py-20 dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Penetration Testing Packages</h2>
+                <p class="text-xl text-gray-400">Choose the right testing approach for your security needs</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic -->
+                <div class="dark-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Basic Assessment</h3>
+                    <div class="text-4xl font-bold text-red-400 mb-6">$8,500<span class="text-lg text-gray-400"> one-time</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Network penetration test
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Up to 5 IP addresses
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Executive summary report
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            2-week delivery
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Comprehensive -->
+                <div class="dark-card rounded-xl p-8 border-2 border-red-500/50">
+                    <div class="text-center mb-4">
+                        <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Comprehensive Test</h3>
+                    <div class="text-4xl font-bold text-red-400 mb-6">$18,500<span class="text-lg text-gray-400"> one-time</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Network + Web app testing
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Up to 20 IP addresses
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Social engineering test
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Detailed technical report
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            3-week delivery
+                        </li>
+                    </ul>
+                    <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-semibold">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Red Team -->
+                <div class="dark-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Red Team Exercise</h3>
+                    <div class="text-4xl font-bold text-red-400 mb-6">$45,000<span class="text-lg text-gray-400"> one-time</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Full-scope assessment
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Advanced persistent threats
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Physical security testing
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Executive briefing
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            6-week engagement
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-semibold">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-red-600 to-orange-600">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Find Vulnerabilities Before Attackers Do</h2>
+            <p class="text-xl text-red-100 mb-8">Schedule a penetration test to identify and fix security weaknesses in your infrastructure.</p>
+            <button class="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100">
+                Schedule Penetration Test
+            </button>
+        </div>
+    </section>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

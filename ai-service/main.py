@@ -11,7 +11,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from providers import chat, get_available_providers
+# Import from new package structure
+from app.services import ai_service
 
 
 class ChatRequest(BaseModel):
@@ -49,14 +50,15 @@ def health():
     return {
         "status": "UP",
         "service": "scorpion-ai",
-        "providers_configured": get_available_providers(),
+        "providers_configured": ai_service.get_available_providers(),
     }
 
 
 @app.post("/chat", response_model=ChatResponse)
 def post_chat(body: ChatRequest):
     try:
-        reply = chat(body.message, body.provider or "auto")
+        # Use simple method on the service instance
+        reply = ai_service.chat(body.message, body.provider)
         return ChatResponse(reply=reply)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -64,7 +66,7 @@ def post_chat(body: ChatRequest):
 
 @app.get("/providers")
 def list_providers():
-    return {"providers": get_available_providers()}
+    return {"providers": ai_service.get_available_providers()}
 
 
 def run():

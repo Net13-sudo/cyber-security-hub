@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library - Scorpion Security</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/config.js"></script>
+    <script src="../js/navigation.js"></script>
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-surface: #1a1a1a;
+            --dark-card: #2a2a2a;
+            --dark-border: #3a3a3a;
+            --accent-orange: #ff6b35;
+            --accent-red: #dc2626;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .dark-nav {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .dark-card {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+        }
+
+        .dark-surface {
+            background: var(--dark-surface);
+        }
+
+        .library-item {
+            transition: all 0.3s ease;
+        }
+
+        .library-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-orange);
+        }
+
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--accent-orange);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <nav class="dark-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <svg class="h-10 w-10 text-accent-orange" viewBox="0 0 40 40" fill="currentColor">
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                            <circle cx="20" cy="18" r="6" fill="var(--dark-bg)" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-white">Scorpion Security</h1>
+                        <p class="text-xs text-gray-400">Digital Library</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6">
+                        <a href="security_command_homepage.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="admin_dashboard.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                        <a href="research_projects.html"
+                            class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Research</a>
+                        <a href="#" class="text-white font-semibold px-3 py-2 rounded-md text-sm">Library</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="py-16 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                    Digital <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Library</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    Access our comprehensive collection of cybersecurity ebooks, articles, whitepapers, and research
+                    documents.
+                </p>
+
+                <!-- Add New Content Button -->
+                <button id="addContentBtn"
+                    class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                    Add New Content
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="py-8 dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search Bar -->
+                <div class="flex-1 max-w-md">
+                    <input type="text" id="searchInput" placeholder="Search library..."
+                        class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-orange-500">
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="flex gap-2 flex-wrap">
+                    <button class="filter-btn active px-4 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm"
+                        data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm"
+                        data-filter="ebook">Ebooks</button>
+                    <button class="filter-btn px-4 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm"
+                        data-filter="article">Articles</button>
+                    <button class="filter-btn px-4 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm"
+                        data-filter="whitepaper">Whitepapers</button>
+                    <button class="filter-btn px-4 py-2 bg-gray-700 text-gray-300 rounded-lg text-sm"
+                        data-filter="research">Research</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Library Content -->
+    <section class="py-12 dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="libraryGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Library items will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Content Modal -->
+    <div id="addContentModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="dark-card rounded-lg p-6 w-full max-w-md">
+                <h3 class="text-xl font-semibold text-white mb-4">Add New Content</h3>
+                <form id="addContentForm">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Title</label>
+                            <input type="text" id="contentTitle" required
+                                class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Type</label>
+                            <select id="contentType" required
+                                class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white focus:outline-none focus:border-orange-500">
+                                <option value="ebook">Ebook</option>
+                                <option value="article">Article</option>
+                                <option value="whitepaper">Whitepaper</option>
+                                <option value="research">Research</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Author</label>
+                            <input type="text" id="contentAuthor" required
+                                class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white focus:outline-none focus:border-orange-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">Description</label>
+                            <textarea id="contentDescription" rows="3" required
+                                class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white focus:outline-none focus:border-orange-500"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-1">URL (optional)</label>
+                            <input type="url" id="contentUrl"
+                                class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded text-white focus:outline-none focus:border-orange-500">
+                        </div>
+                    </div>
+                    <div class="flex gap-3 mt-6">
+                        <button type="submit"
+                            class="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-2 rounded font-semibold">
+                            Add Content
+                        </button>
+                        <button type="button" id="cancelBtn"
+                            class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-2 rounded font-semibold">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/digital-library.js"></script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+
+</html>

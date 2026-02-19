@@ -1,125 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scorpion Security Hub</title>
-    <link rel="stylesheet" href="css/main.css" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .loading-container {
-            text-align: center;
-            position: relative;
-        }
-
-        .logo {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ff6b35;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
-            animation: pulse 2s infinite;
-        }
-
-        .scorpion-icon {
-            font-size: 4rem;
-            color: #ff6b35;
-            margin-bottom: 30px;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .loading-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #cccccc;
-        }
-
-        .loading-bar {
-            width: 300px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .loading-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b35, #ff8c42);
-            border-radius: 2px;
-            animation: loading 3s ease-in-out forwards;
-        }
-
-        .security-text {
-            font-size: 0.9rem;
-            color: #888;
-            margin-top: 20px;
-            font-style: italic;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(255, 107, 53, 0.5); }
-            to { text-shadow: 0 0 30px rgba(255, 107, 53, 0.8), 0 0 40px rgba(255, 107, 53, 0.6); }
-        }
-
-        @keyframes loading {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-
-        .fade-out {
-            animation: fadeOut 0.5s ease-in-out forwards;
-        }
-
-        @keyframes fadeOut {
-            to { opacity: 0; }
-        }
-    </style>
-<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fscorpions9261back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=pages/security_command_homepage.html">
+    <title>Redirecting...</title>
 </head>
+
 <body>
-    <div class="loading-container" id="loadingContainer">
-        <div class="scorpion-icon">🦂</div>
-        <div class="logo">SCORPION SECURITY HUB</div>
-        <div class="loading-text">Initializing Security Command Center...</div>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
-        </div>
-        <div class="security-text">Advanced Threat Protection & Intelligence</div>
-    </div>
-
-    <script>
-        // Redirect to security command homepage after loading animation
-        setTimeout(function() {
-            document.getElementById('loadingContainer').classList.add('fade-out');
-            setTimeout(function() {
-                window.location.href = 'pages/security_command_homepage.html';
-            }, 500);
-        }, 3500);
-
-        // Preload the target page for smoother transition
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = 'pages/security_command_homepage.html';
-        document.head.appendChild(link);
-    </script>
-<script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+    <p>Redirecting to <a href="pages/security_command_homepage.html">Scorpion Security Hub</a>...</p>
+    <script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
 </body>
+
 </html>

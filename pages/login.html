@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Scorpion Security Hub</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/config.js"></script>
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --dark-surface: #1a1a1a;
+            --dark-card: #2a2a2a;
+            --dark-border: #3a3a3a;
+            --accent-orange: #ff6b35;
+            --accent-red: #dc2626;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+        }
+
+        .btn-primary:disabled {
+            background: #6b7280;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            color: #fca5a5;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .success-message {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .back-link a {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .two-factor-section {
+            display: none;
+        }
+
+        .two-factor-section.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <svg class="h-16 w-16 text-accent-orange mx-auto mb-4" viewBox="0 0 40 40" fill="currentColor">
+                <path d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                <circle cx="20" cy="18" r="6" fill="var(--dark-bg)" />
+            </svg>
+            <h1 class="text-2xl font-bold text-white">Scorpion Security</h1>
+            <p class="text-gray-400 text-sm">Admin Portal</p>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+        <div id="successMessage" class="success-message" style="display: none;"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-input" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-input" required autocomplete="current-password">
+            </div>
+
+            <div class="form-group two-factor-section" id="twoFactorSection">
+                <label for="twoFactorToken" class="form-label">Two-Factor Authentication Code</label>
+                <input type="text" id="twoFactorToken" name="twoFactorToken" class="form-input" placeholder="Enter 6-digit code">
+                <p class="text-gray-400 text-xs mt-1">Enter the 6-digit code from your authenticator app</p>
+            </div>
+
+            <button type="submit" id="loginButton" class="btn-primary">
+                <span id="loginButtonText">Sign In</span>
+                <span id="loginButtonLoading" class="loading" style="display: none;"></span>
+            </button>
+        </form>
+
+        <div class="back-link">
+            <a href="security_command_homepage.html">← Back to Homepage</a>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:3001/api';
+        
+        class LoginManager {
+            constructor() {
+                this.form = document.getElementById('loginForm');
+                this.errorMessage = document.getElementById('errorMessage');
+                this.successMessage = document.getElementById('successMessage');
+                this.twoFactorSection = document.getElementById('twoFactorSection');
+                this.loginButton = document.getElementById('loginButton');
+                this.loginButtonText = document.getElementById('loginButtonText');
+                this.loginButtonLoading = document.getElementById('loginButtonLoading');
+                
+                this.requiresTwoFactor = false;
+                
+                this.init();
+            }
+
+            init() {
+                this.form.addEventListener('submit', (e) => this.handleLogin(e));
+                
+                // Check if already logged in
+                const token = localStorage.getItem('authToken');
+                if (token) {
+                    this.verifyToken(token);
+                }
+            }
+
+            async verifyToken(token) {
+                try {
+                    const response = await fetch(`${API_BASE_URL}/auth/verify`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.user.role === 'admin') {
+                            window.location.href = 'admin_dashboard.html';
+                        }
+                    } else {
+                        localStorage.removeItem('authToken');
+                    }
+                } catch (error) {
+                    console.error('Token verification failed:', error);
+                    localStorage.removeItem('authToken');
+                }
+            }
+
+            showError(message) {
+                this.errorMessage.textContent = message;
+                this.errorMessage.style.display = 'block';
+                this.successMessage.style.display = 'none';
+            }
+
+            showSuccess(message) {
+                this.successMessage.textContent = message;
+                this.successMessage.style.display = 'block';
+                this.errorMessage.style.display = 'none';
+            }
+
+            hideMessages() {
+                this.errorMessage.style.display = 'none';
+                this.successMessage.style.display = 'none';
+            }
+
+            setLoading(loading) {
+                this.loginButton.disabled = loading;
+                this.loginButtonText.style.display = loading ? 'none' : 'inline';
+                this.loginButtonLoading.style.display = loading ? 'inline-block' : 'none';
+            }
+
+            async handleLogin(e) {
+                e.preventDefault();
+                
+                this.hideMessages();
+                this.setLoading(true);
+
+                const formData = new FormData(this.form);
+                const loginData = {
+                    username: formData.get('username'),
+                    password: formData.get('password')
+                };
+
+                if (this.requiresTwoFactor) {
+                    loginData.token = formData.get('twoFactorToken');
+                }
+
+                try {
+                    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(loginData)
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Login successful
+                        localStorage.setItem('authToken', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                        
+                        this.showSuccess('Login successful! Redirecting...');
+                        
+                        setTimeout(() => {
+                            if (data.user.role === 'admin') {
+                                window.location.href = 'admin_dashboard.html';
+                            } else {
+                                window.location.href = 'client_security_portal.html';
+                            }
+                        }, 1000);
+                        
+                    } else if (response.status === 403 && data.require2fa) {
+                        // 2FA required
+                        this.requiresTwoFactor = true;
+                        this.twoFactorSection.classList.add('show');
+                        this.showError('Please enter your two-factor authentication code');
+                        document.getElementById('twoFactorToken').focus();
+                        
+                    } else {
+                        // Login failed
+                        this.showError(data.error || 'Login failed');
+                        this.requiresTwoFactor = false;
+                        this.twoFactorSection.classList.remove('show');
+                    }
+                    
+                } catch (error) {
+                    console.error('Login error:', error);
+                    this.showError('Connection error. Please check if the server is running.');
+                } finally {
+                    this.setLoading(false);
+                }
+            }
+        }
+
+        // Initialize login manager
+        new LoginManager();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

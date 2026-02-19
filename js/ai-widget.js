@@ -1,5 +1,5 @@
 (function () {
-  const API_BASE = window.SCORPION_AI_API || 'http://localhost:3001/api';
+  const API_BASE = window.SCORPION_AI_API || 'http://localhost:30011/api';
   const WIDGET_ID = 'scorpion-ai-widget';
 
   function createStyles() {
