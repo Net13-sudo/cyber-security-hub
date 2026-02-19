@@ -1,174 +1,91 @@
 # 🚀 Scorpion Security Hub - Deployment Guide
 
-This guide covers multiple deployment options for your Scorpion Security Hub application.
+This guide covers deployment options for your Scorpion Security Hub application using **DigitalOcean App Platform** and **Vercel**.
 
 ## 📋 **Current Status**
 ✅ **Backend**: Node.js server with Supabase PostgreSQL  
 ✅ **Frontend**: Static HTML/CSS/JavaScript  
 ✅ **Database**: Supabase (PostgreSQL with RLS)  
 ✅ **Authentication**: Supabase Auth  
+✅ **Navigation**: Dynamic navigation system  
 
 ---
 
 ## 🌐 **Deployment Options**
 
-### **Option 1: Vercel (Recommended - Free)**
+### **Option 1: DigitalOcean App Platform (Recommended)**
 
-**Best for**: Quick deployment, automatic HTTPS, global CDN
+**Best for**: Full-stack applications, predictable pricing, managed infrastructure
 
-#### **Backend Deployment (Vercel)**
-1. **Install Vercel CLI**:
+#### **Features**:
+- ✅ Full-stack deployment (frontend + backend)
+- ✅ Automatic SSL certificates
+- ✅ Built-in monitoring and alerts
+- ✅ Easy scaling and management
+- ✅ Custom domains support
+- ✅ Predictable pricing
+
+#### **Quick Deploy**:
+```bash
+# Run the deployment script
+node deploy-digitalocean.js
+```
+
+#### **Manual Setup**:
+1. **Install DigitalOcean CLI**:
    ```bash
-   npm install -g vercel
+   # Visit: https://docs.digitalocean.com/reference/doctl/how-to/install/
    ```
 
-2. **Prepare for deployment**:
+2. **Authenticate**:
    ```bash
-   cd server
-   # Create vercel.json
+   doctl auth init
    ```
 
 3. **Deploy**:
    ```bash
-   vercel --prod
+   doctl apps create --spec .do/app.yaml
    ```
 
-#### **Frontend Deployment (Vercel)**
-1. **Deploy frontend**:
-   ```bash
-   cd .. # Back to root
-   vercel --prod
-   ```
+4. **Set Environment Variables** in DigitalOcean dashboard:
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `JWT_SECRET`
 
-**Vercel Configuration** (`vercel.json`):
-```json
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "server/src/index.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server/src/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "env": {
-    "SUPABASE_URL": "@supabase_url",
-    "SUPABASE_ANON_KEY": "@supabase_anon_key",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
-    "JWT_SECRET": "@jwt_secret"
-  }
-}
+---
+
+### **Option 2: Vercel (Serverless)**
+
+**Best for**: Serverless deployment, automatic scaling, global CDN
+
+#### **Features**:
+- ✅ Serverless functions for API
+- ✅ Global CDN for frontend
+- ✅ Automatic deployments from Git
+- ✅ Built-in analytics
+- ✅ Zero-config deployment
+- ✅ Free tier available
+
+#### **Quick Deploy**:
+```bash
+# Run the deployment script
+node deploy-vercel.js
 ```
 
----
+#### **Manual Setup**:
+```bash
+# Install Vercel CLI
+npm install -g vercel
 
-### **Option 2: Netlify (Great for Frontend)**
+# Deploy
+vercel --prod
 
-**Best for**: Static sites, form handling, edge functions
-
-#### **Frontend Deployment**:
-1. **Build configuration** (`netlify.toml`):
-   ```toml
-   [build]
-     publish = "."
-     command = "echo 'No build needed for static site'"
-
-   [[redirects]]
-     from = "/api/*"
-     to = "https://your-backend-url.vercel.app/api/:splat"
-     status = 200
-   ```
-
-2. **Deploy**:
-   - Connect GitHub repository to Netlify
-   - Auto-deploy on push
-
----
-
-### **Option 3: Railway (Full-Stack)**
-
-**Best for**: Full-stack applications, databases, automatic scaling
-
-#### **Setup**:
-1. **Install Railway CLI**:
-   ```bash
-   npm install -g @railway/cli
-   ```
-
-2. **Deploy**:
-   ```bash
-   railway login
-   railway init
-   railway up
-   ```
-
----
-
-### **Option 4: Heroku (Traditional PaaS)**
-
-**Best for**: Established workflows, add-ons ecosystem
-
-#### **Setup**:
-1. **Create Procfile**:
-   ```
-   web: cd server && npm start
-   ```
-
-2. **Deploy**:
-   ```bash
-   heroku create scorpion-security-hub
-   git push heroku main
-   ```
-
----
-
-### **Option 5: DigitalOcean App Platform**
-
-**Best for**: Predictable pricing, managed infrastructure
-
-#### **Configuration** (`.do/app.yaml`):
-```yaml
-name: scorpion-security-hub
-services:
-- name: api
-  source_dir: /server
-  github:
-    repo: your-username/scorpion-security-hub
-    branch: main
-  run_command: npm start
-  environment_slug: node-js
-  instance_count: 1
-  instance_size_slug: basic-xxs
-  envs:
-  - key: SUPABASE_URL
-    value: ${SUPABASE_URL}
-  - key: SUPABASE_ANON_KEY
-    value: ${SUPABASE_ANON_KEY}
-  - key: SUPABASE_SERVICE_ROLE_KEY
-    value: ${SUPABASE_SERVICE_ROLE_KEY}
-- name: web
-  source_dir: /
-  github:
-    repo: your-username/scorpion-security-hub
-    branch: main
-  build_command: echo "Static site"
-  run_command: echo "Static site"
-  environment_slug: node-js
-  instance_count: 1
-  instance_size_slug: basic-xxs
+# Set environment variables
+vercel env add SUPABASE_URL production
+vercel env add SUPABASE_ANON_KEY production
+vercel env add SUPABASE_SERVICE_ROLE_KEY production
+vercel env add JWT_SECRET production
 ```
 
 ---
@@ -191,41 +108,47 @@ BCRYPT_ROUNDS=12
 # Server Configuration
 NODE_ENV=production
 PORT=3001
-
-# CORS (Update with your domain)
-CORS_ORIGIN=https://your-domain.com,https://www.your-domain.com
 ```
 
-### **Frontend Configuration**
-Update API URLs in your JavaScript files for production:
+### **Repository Setup**
+1. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Prepare for deployment"
+   git push origin main
+   ```
 
-```javascript
-// In production, use your deployed API URL
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-api-domain.com/api'
-  : 'http://localhost:30011/api';
-```
+2. **Update Repository URLs** in configuration files
 
 ---
 
 ## 🌍 **Domain & DNS Setup**
 
-### **Custom Domain Configuration**:
-
-1. **Purchase Domain** (Namecheap, GoDaddy, etc.)
-
-2. **DNS Records**:
+### **DigitalOcean Custom Domain**:
+1. **Add Domain** in DigitalOcean App settings
+2. **Update DNS Records**:
    ```
    Type: CNAME
    Name: www
-   Value: your-app.vercel.app
+   Value: your-app.ondigitalocean.app
 
    Type: A
    Name: @
-   Value: 76.76.19.61 (Vercel IP)
+   Value: [DigitalOcean IP]
    ```
 
-3. **SSL Certificate**: Automatic with most platforms
+### **Vercel Custom Domain**:
+1. **Add Domain** in Vercel project settings
+2. **Update DNS Records**:
+   ```
+   Type: CNAME
+   Name: www
+   Value: cname.vercel-dns.com
+
+   Type: A
+   Name: @
+   Value: 76.76.19.61
+   ```
 
 ---
 
@@ -238,69 +161,64 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
 - ✅ **CORS Configuration**: Restrict to your domains only
 - ✅ **Rate Limiting**: Implement API rate limits
 - ✅ **Input Validation**: Sanitize all user inputs
-- ✅ **SQL Injection**: Use parameterized queries (Supabase handles this)
-- ✅ **XSS Protection**: Sanitize HTML output
 - ✅ **Authentication**: Secure JWT tokens
 - ✅ **Row Level Security**: Enabled in Supabase
 
-### **Supabase Security**:
-```sql
--- Enable RLS on all tables (already done in migration)
-ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;
-ALTER TABLE digital_library ENABLE ROW LEVEL SECURITY;
--- ... etc
+### **CORS Configuration**:
+Update your server CORS settings for production:
+```javascript
+// In server/src/index.js
+const corsOptions = {
+  origin: [
+    'https://yourdomain.com',
+    'https://www.yourdomain.com',
+    'https://your-app.ondigitalocean.app',
+    'https://your-app.vercel.app'
+  ]
+};
 ```
 
 ---
 
 ## 📊 **Monitoring & Analytics**
 
-### **Recommended Tools**:
+### **DigitalOcean Monitoring**:
+- Built-in app metrics
+- CPU and memory usage
+- Request/response monitoring
+- Custom alerts
 
+### **Vercel Analytics**:
+- Built-in web analytics
+- Function execution metrics
+- Performance insights
+- Error tracking
+
+### **Additional Tools**:
 1. **Uptime Monitoring**: UptimeRobot, Pingdom
 2. **Error Tracking**: Sentry, LogRocket
-3. **Analytics**: Google Analytics, Plausible
-4. **Performance**: Lighthouse, WebPageTest
-
-### **Health Check Endpoint**:
-Your app includes: `GET /api/health`
+3. **Performance**: Lighthouse, WebPageTest
 
 ---
 
-## 🚀 **Quick Deploy Commands**
+## 🚀 **Deployment Commands Summary**
 
-### **Vercel (Recommended)**:
+### **DigitalOcean**:
 ```bash
-# Install Vercel CLI
-npm install -g vercel
+# Quick deploy
+node deploy-digitalocean.js
 
-# Deploy backend
-cd server
-vercel --prod
-
-# Deploy frontend
-cd ..
-vercel --prod
+# Manual deploy
+doctl apps create --spec .do/app.yaml
 ```
 
-### **Netlify**:
+### **Vercel**:
 ```bash
-# Install Netlify CLI
-npm install -g netlify-cli
+# Quick deploy
+node deploy-vercel.js
 
-# Deploy
-netlify deploy --prod --dir .
-```
-
-### **Railway**:
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
-
-# Deploy
-railway login
-railway init
-railway up
+# Manual deploy
+vercel --prod
 ```
 
 ---
@@ -336,14 +254,14 @@ railway up
 
 **CORS Errors**:
 ```javascript
-// Update CORS_ORIGIN in .env
+// Update CORS_ORIGIN in environment variables
 CORS_ORIGIN=https://your-domain.com,https://www.your-domain.com
 ```
 
 **Database Connection**:
 ```bash
 # Test Supabase connection
-node test-supabase.js
+node server/test-supabase.js
 ```
 
 **Build Failures**:
@@ -352,17 +270,24 @@ node test-supabase.js
 node --version  # Should be 16+ for most platforms
 ```
 
+### **DigitalOcean Specific**:
+- Check app logs in dashboard
+- Verify environment variables
+- Monitor resource usage
+
+### **Vercel Specific**:
+- Check function logs
+- Verify serverless function limits
+- Monitor cold start times
+
 ---
 
 ## 📞 **Support Resources**
 
+- **DigitalOcean Docs**: https://docs.digitalocean.com/products/app-platform/
 - **Vercel Docs**: https://vercel.com/docs
-- **Netlify Docs**: https://docs.netlify.com
 - **Supabase Docs**: https://supabase.com/docs
-- **Railway Docs**: https://docs.railway.app
 
 ---
 
-Your Scorpion Security Hub is ready for deployment! 🎉
-
-Choose the platform that best fits your needs and follow the corresponding setup instructions above.
+Your Scorpion Security Hub is ready for deployment! Choose between DigitalOcean for traditional hosting or Vercel for serverless deployment. 🎉

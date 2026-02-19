@@ -1,9 +1,13 @@
 {
   "version": 2,
+  "name": "scorpion-security-hub",
   "builds": [
     {
       "src": "server/src/index.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
@@ -12,16 +16,24 @@
       "dest": "/server/src/index.js"
     },
     {
-      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/$1"
+      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|json))",
+      "dest": "/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/pages/(.*)",
+      "dest": "/pages/$1"
     },
     {
       "src": "/",
       "dest": "/index.html"
     },
     {
-      "src": "/pages/(.*)",
-      "dest": "/pages/$1"
+      "src": "/(.*)",
+      "dest": "/pages/404.html",
+      "status": 404
     }
   ],
   "env": {
@@ -29,6 +41,31 @@
     "SUPABASE_ANON_KEY": "@supabase_anon_key", 
     "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
     "JWT_SECRET": "@jwt_secret",
-    "NODE_ENV": "production"
-  }
+    "NODE_ENV": "production",
+    "BCRYPT_ROUNDS": "12"
+  },
+  "functions": {
+    "server/src/index.js": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
 }
