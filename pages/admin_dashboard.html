@@ -2,169 +2,311 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Scorpion Security Hub</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/config.js"></script>
-    <script src="../js/navigation.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Admin | Scorpion Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --surface-glass: rgba(26, 26, 26, 0.4);
+            --accent-violet: #8b5cf6;
+            --accent-blue: #3b82d6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+        }
+
+        .btn-premium {
+            background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pulse-dot {
+            animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0.5;
+            }
+        }
+
+        .sidebar-link {
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: rgba(139, 92, 246, 0.1);
+            border-left-color: var(--accent-violet);
+            color: white;
+        }
+
+        input,
+        select {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+
+        input:focus {
+            border-color: var(--accent-violet) !important;
+            outline: none !important;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="flex flex-col min-h-screen">
     <!-- Navigation -->
-    <nav class="bg-primary text-white shadow-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <h1 class="text-2xl font-bold">🦂 Scorpion Security Hub</h1>
-                    <span class="px-3 py-1 bg-accent text-white text-sm rounded-full">Super Admin</span>
+    <nav class="glass-nav sticky top-0 z-50">
+        <div class="max-w-[1600px] mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-12">
+                    <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='../index.html'">
+                        <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                        </svg>
+                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion<span
+                                class="text-violet-500">.</span>Admin</span>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="digital_library.html" class="text-white hover:text-gray-200 text-sm">Digital Library</a>
-                    <a href="research_projects.html" class="text-white hover:text-gray-200 text-sm">Research</a>
-                    <a href="../index.html" class="text-white hover:text-gray-200 text-sm">Home</a>
-                    <span id="adminUsername" class="text-sm"></span>
-                    <button onclick="logout()" class="btn-secondary text-sm">Logout</button>
+                <div class="flex items-center gap-6">
+                    <div
+                        class="flex items-center gap-3 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20">
+                        <span class="w-2 h-2 rounded-full bg-violet-500 pulse-dot"></span>
+                        <span id="adminUsername"
+                            class="text-xs font-bold text-violet-400 uppercase tracking-widest leading-none">Super
+                            Admin</span>
+                    </div>
+                    <button onclick="logout()"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-all">Sign out</button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container mx-auto px-6 py-8">
-        <!-- Page Header -->
-        <div class="mb-8">
-            <h2 class="text-3xl font-bold text-gray-800">Admin Dashboard</h2>
-            <p class="text-gray-600 mt-2">Manage users, roles, and system settings</p>
-        </div>
+    <div class="flex flex-1 max-w-[1600px] w-full mx-auto">
+        <!-- Sidebar -->
+        <aside class="w-64 border-r border-white/5 py-8 px-6 space-y-8 hidden lg:block">
+            <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">Operations</p>
+                <a href="#"
+                    class="sidebar-link active flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="digital_library.html"
+                    class="sidebar-link flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    Library
+                </a>
+                <a href="research_projects.html"
+                    class="sidebar-link flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    Research
+                </a>
+            </div>
 
-        <!-- Statistics Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="card-elevated">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm">Total Users</p>
-                        <p id="totalUsers" class="text-3xl font-bold text-primary mt-1">0</p>
+            <div class="space-y-1">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-4">System</p>
+                <a href="../index.html"
+                    class="sidebar-link flex items-center gap-3 px-4 py-2 rounded-lg text-sm font-medium text-slate-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    Live Portal
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 py-12 px-8">
+            <header class="mb-12">
+                <h2 class="text-4xl font-bold tracking-tight gradient-text mb-2">System Control</h2>
+                <p class="text-slate-500">Real-time management of operators and sector access.</p>
+            </header>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-1">Total Operators
+                        </p>
+                        <p id="totalUsers" class="text-3xl font-bold font-mono">0</p>
                     </div>
-                    <div class="text-4xl">👥</div>
+                    <div
+                        class="absolute -right-4 -bottom-4 w-20 h-20 bg-violet-500/5 rounded-full group-hover:scale-150 transition-transform">
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-1">Sector Admins
+                        </p>
+                        <p id="totalAdmins" class="text-3xl font-bold font-mono text-violet-400">0</p>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden group border-violet-500/20">
+                    <div class="relative z-10">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-1">Super Admins</p>
+                        <p id="totalSuperAdmins" class="text-3xl font-bold font-mono text-violet-500">0</p>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-1">Identity
+                            Verified</p>
+                        <p id="verifiedUsers" class="text-3xl font-bold font-mono text-emerald-400">0</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="card-elevated">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm">Admins</p>
-                        <p id="totalAdmins" class="text-3xl font-bold text-accent mt-1">0</p>
-                    </div>
-                    <div class="text-4xl">👑</div>
+            <!-- Operator Table -->
+            <div class="glass-card rounded-[2rem] overflow-hidden">
+                <div class="px-8 py-6 border-b border-white/5 flex justify-between items-center">
+                    <h3 class="text-lg font-bold">Operator Directory</h3>
+                    <button onclick="refreshUsers()"
+                        class="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold uppercase tracking-widest transition-all">
+                        Synchronize
+                    </button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr
+                                class="text-[10px] font-bold text-slate-500 uppercase tracking-widest border-b border-white/5">
+                                <th class="px-8 py-4">Operator ID</th>
+                                <th class="px-8 py-4">Alias</th>
+                                <th class="px-8 py-4">Credentials</th>
+                                <th class="px-8 py-4">Vector</th>
+                                <th class="px-8 py-4">Identity</th>
+                                <th class="px-8 py-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody" class="divide-y divide-white/5 text-sm">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </main>
+    </div>
 
-            <div class="card-elevated">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm">Super Admins</p>
-                        <p id="totalSuperAdmins" class="text-3xl font-bold text-error mt-1">0</p>
-                    </div>
-                    <div class="text-4xl">⚡</div>
+    <!-- Modals (Redesigned) -->
+    <div id="editRoleModal"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[100]">
+        <div class="glass-card rounded-[2.5rem] p-10 max-w-md w-full mx-4 border-violet-500/20">
+            <h3 class="text-2xl font-bold gradient-text mb-8">Override Privileges</h3>
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Operator
+                        Alias</label>
+                    <input id="editUsername" type="text"
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10" disabled>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Sector
+                        Role</label>
+                    <select id="editRole" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10">
+                        <option value="user">Operator</option>
+                        <option value="admin">Sector Admin</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-3 py-2">
+                    <input id="editSuperAdmin" type="checkbox" class="w-5 h-5 rounded-md accent-violet-500">
+                    <span class="text-sm font-medium">Grant Super Admin Override</span>
                 </div>
             </div>
-
-            <div class="card-elevated">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <p class="text-gray-600 text-sm">Verified Users</p>
-                        <p id="verifiedUsers" class="text-3xl font-bold text-success mt-1">0</p>
-                    </div>
-                    <div class="text-4xl">✓</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- User Management Section -->
-        <div class="card-elevated mb-8">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-xl font-bold text-gray-800">User Management</h3>
-                <button onclick="refreshUsers()" class="btn-secondary text-sm">
-                    🔄 Refresh
-                </button>
-            </div>
-
-            <!-- Users Table -->
-            <div class="overflow-x-auto">
-                <table class="w-full">
-                    <thead class="bg-gray-100">
-                        <tr>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">ID</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Username</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Email</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Role</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Super Admin</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Verified</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Created</th>
-                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersTableBody" class="divide-y divide-gray-200">
-                        <!-- Users will be loaded here -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Recent Activity -->
-        <div class="card-elevated">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">Recent Users</h3>
-            <div id="recentUsers" class="space-y-3">
-                <!-- Recent users will be loaded here -->
+            <div class="flex gap-4 mt-10">
+                <button onclick="saveRoleChanges()"
+                    class="btn-premium flex-1 py-3 rounded-full font-bold text-sm">Authorize</button>
+                <button onclick="closeEditModal()"
+                    class="flex-1 py-3 rounded-full bg-white/5 border border-white/10 font-bold text-sm hover:bg-white/10">Abort</button>
             </div>
         </div>
     </div>
 
-    <!-- Edit Role Modal -->
-    <div id="editRoleModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-            <h3 class="text-2xl font-bold mb-4">Edit User Role</h3>
-            <div class="mb-4">
-                <label class="block text-sm font-semibold mb-2">Username</label>
-                <input id="editUsername" type="text" class="input-field" disabled>
-            </div>
-            <div class="mb-4">
-                <label class="block text-sm font-semibold mb-2">Role</label>
-                <select id="editRole" class="input-field">
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                </select>
-            </div>
-            <div class="mb-6">
-                <label class="flex items-center space-x-2">
-                    <input id="editSuperAdmin" type="checkbox" class="w-5 h-5">
-                    <span class="text-sm font-semibold">Super Admin Privileges</span>
-                </label>
-            </div>
-            <div class="flex space-x-4">
-                <button onclick="saveRoleChanges()" class="btn-primary flex-1">Save Changes</button>
-                <button onclick="closeEditModal()" class="btn-secondary flex-1">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Delete Confirmation Modal -->
-    <div id="deleteModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
-            <h3 class="text-2xl font-bold mb-4 text-error">Delete User</h3>
-            <p class="mb-6">Are you sure you want to delete user <strong id="deleteUsername"></strong>? This action
-                cannot be undone.</p>
-            <div class="flex space-x-4">
+    <!-- Delete Modal -->
+    <div id="deleteModal"
+        class="hidden fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[100]">
+        <div class="glass-card rounded-[2.5rem] p-10 max-w-md w-full mx-4 border-red-500/20">
+            <h3 class="text-2xl font-bold text-red-500 mb-4">Decommission Operator</h3>
+            <p class="text-slate-400 text-sm mb-8">Are you sure you want to revoke all access for <strong
+                    id="deleteUsername" class="text-white"></strong>? This protocol is irreversible.</p>
+            <div class="flex gap-4">
                 <button onclick="confirmDelete()"
-                    class="bg-error text-white px-6 py-3 rounded-lg font-semibold flex-1 hover:bg-error-600">Delete</button>
-                <button onclick="closeDeleteModal()" class="btn-secondary flex-1">Cancel</button>
+                    class="flex-1 py-3 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold text-sm">Execute</button>
+                <button onclick="closeDeleteModal()"
+                    class="flex-1 py-3 rounded-full bg-white/5 border border-white/10 font-bold text-sm hover:bg-white/10">Cancel</button>
             </div>
         </div>
     </div>
 
     <script src="../js/admin-dashboard.js"></script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 
 </html>

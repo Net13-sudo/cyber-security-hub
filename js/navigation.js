@@ -39,7 +39,7 @@ class ScorpionNavigation {
             <div class="nav-container">
                 <!-- Logo and Brand -->
                 <div class="nav-brand">
-                    <a href="/pages/security_command_homepage.html" class="brand-link">
+                    <a href="/index.html" class="brand-link">
                         <div class="brand-icon">🦂</div>
                         <span class="brand-text">Scorpion Security</span>
                     </a>
@@ -47,7 +47,7 @@ class ScorpionNavigation {
 
                 <!-- Main Navigation Links -->
                 <div class="nav-links">
-                    <a href="/pages/security_command_homepage.html" class="nav-link ${this.isActivePage('security_command_homepage.html') ? 'active' : ''}">
+                    <a href="/index.html" class="nav-link ${this.isActivePage('index.html') ? 'active' : ''}">
                         <span class="nav-icon">🏠</span>
                         <span>Home</span>
                     </a>
@@ -63,7 +63,7 @@ class ScorpionNavigation {
                             <span>Research</span>
                         </a>
 
-                        <a href="/pages/threat_intelligence.html" class="nav-link ${this.isActivePage('threat_intelligence.html') ? 'active' : ''}">
+                        <a href="/pages/threat_intelligence_center.html" class="nav-link ${this.isActivePage('threat_intelligence_center.html') ? 'active' : ''}">
                             <span class="nav-icon">🛡️</span>
                             <span>Threat Intel</span>
                         </a>
