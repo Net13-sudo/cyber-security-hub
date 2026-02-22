@@ -6,29 +6,16 @@
   "scripts": {
     "start": "cd server && npm start",
     "dev": "cd server && npm run dev",
-    "build": "echo 'No build step required for static frontend'",
-    "test": "cd server && npm test",
-    "setup": "cd server && npm install"
+    "setup": "cd server && npm install",
+    "migrate": "cd server && npm run migrate",
+    "seed": "cd server && npm run seed"
   },
-  "keywords": [
-    "cybersecurity",
-    "threat-intelligence",
-    "incident-response",
-    "security-management",
-    "supabase",
-    "nodejs"
-  ],
-  "author": "Scorpion Security Team",
-  "license": "MIT",
   "engines": {
-    "node": ">=16.0.0",
+    "node": ">=18.0.0",
     "npm": ">=8.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/your-username/scorpion-security-hub.git"
-  },
-  "homepage": "https://scorpionsecurity.com",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
 }

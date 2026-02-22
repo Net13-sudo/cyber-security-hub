@@ -1,148 +1,147 @@
-// Load configuration first
-const API_URL = window.SCORPION_CONFIG ? window.SCORPION_CONFIG.AUTH_API_URL : 'http://localhost:30011/api/auth';
+/**
+ * Login & Signup Logic for Scorpion Security Hub
+ * Handles the premium split-screen UI interaction and API communication
+ */
 
-// Get form elements
-const signupForm = document.getElementById('signupForm');
-const loginForm = document.getElementById('loginForm');
-const switchToLogin = document.getElementById('switchToLogin');
-const switchToSignup = document.getElementById('switchToSignup');
+document.addEventListener('DOMContentLoaded', () => {
+    // API Configuration
+    const API_URL = (window.SCORPION_CONFIG && window.SCORPION_CONFIG.AUTH_API_URL) || 'http://localhost:3001/api/auth';
 
-// Form switching functionality
-if (switchToLogin) {
-    switchToLogin.addEventListener('click', (e) => {
+    // Elements
+    const signupSection = document.getElementById('signupSection');
+    const loginSection = document.getElementById('loginSection');
+    const switchToLogin = document.getElementById('switchToLogin');
+    const switchToSignup = document.getElementById('switchToSignup');
+    const authMessage = document.getElementById('authMessage');
+
+    const signupForm = document.getElementById('signupForm');
+    const loginForm = document.getElementById('loginForm');
+
+    // Section Switching
+    switchToLogin?.addEventListener('click', (e) => {
         e.preventDefault();
-        signupForm.classList.add('hidden');
-        loginForm.classList.remove('hidden');
+        signupSection.classList.add('hidden');
+        loginSection.classList.remove('hidden');
+        hideMessage();
     });
-}
 
-if (switchToSignup) {
-    switchToSignup.addEventListener('click', (e) => {
+    switchToSignup?.addEventListener('click', (e) => {
         e.preventDefault();
-        loginForm.classList.add('hidden');
-        signupForm.classList.remove('hidden');
+        loginSection.classList.add('hidden');
+        signupSection.classList.remove('hidden');
+        hideMessage();
     });
-}
 
-// Signup Form Logic
-if (signupForm) {
-    signupForm.addEventListener('submit', async (e) => {
+    // Signup Submission
+    signupForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const firstName = document.getElementById('firstName').value;
-        const lastName = document.getElementById('lastName').value;
-        const email = document.getElementById('email').value;
+        hideMessage();
+
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
         const terms = document.getElementById('terms').checked;
-        
-        // Basic validation
-        if (!firstName || !lastName || !email || !password) {
-            showMessage('Please fill in all fields', 'error');
-            return;
-        }
-        
+
         if (!terms) {
-            showMessage('Please agree to the Terms & Conditions', 'error');
-            return;
+            return showMessage('You must agree to the Terms & Conditions', 'error');
         }
-        
+
         try {
+            const btn = signupForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Creating account...';
+            btn.disabled = true;
+
             const res = await fetch(`${API_URL}/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     username: `${firstName} ${lastName}`,
-                    firstName,
-                    lastName,
-                    email, 
-                    password 
+                    email,
+                    password
                 })
             });
+
             const data = await res.json();
 
             if (res.ok) {
-                showMessage('Registration successful! Please check your email to verify your account.', 'success');
-                // Optionally switch to login form
+                showMessage('Account created successfully! Switching to login...', 'success');
                 setTimeout(() => {
-                    signupForm.classList.add('hidden');
-                    loginForm.classList.remove('hidden');
+                    signupSection.classList.add('hidden');
+                    loginSection.classList.remove('hidden');
                 }, 2000);
             } else {
-                showMessage(data.error || 'Registration failed', 'error');
+                showMessage(data.error || 'Registration failed. Please try again.', 'error');
             }
         } catch (err) {
-            showMessage('Network error. Please try again.', 'error');
+            console.error('Signup error:', err);
+            showMessage('Connection error. Is the server running?', 'error');
+        } finally {
+            const btn = signupForm.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Create account';
+            btn.disabled = false;
         }
     });
-}
 
-// Login Form Logic
-if (loginForm) {
-    loginForm.addEventListener('submit', async (e) => {
+    // Login Submission
+    loginForm?.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const email = document.getElementById('loginEmail').value;
+        hideMessage();
+
+        const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value;
-        
-        if (!email || !password) {
-            showMessage('Please fill in all fields', 'error');
-            return;
-        }
-        
+
         try {
+            const btn = loginForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Signing in...';
+            btn.disabled = true;
+
             const res = await fetch(`${API_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
             });
+
             const data = await res.json();
 
             if (res.ok) {
                 showMessage('Login successful! Redirecting...', 'success');
-                
                 localStorage.setItem('authToken', data.token);
-                localStorage.setItem('username', data.user.username || data.user.email);
-                localStorage.setItem('userRole', data.user.role || 'user');
+                localStorage.setItem('user', JSON.stringify(data.user));
 
                 setTimeout(() => {
                     window.location.href = data.user.role === 'admin' ? 'admin_dashboard.html' : 'security_command_homepage.html';
                 }, 1500);
             } else {
-                showMessage(data.error || 'Login failed', 'error');
+                showMessage(data.error || 'Invalid credentials. Please try again.', 'error');
             }
         } catch (err) {
-            showMessage('Network error. Please try again.', 'error');
+            console.error('Login error:', err);
+            showMessage('Connection error. Is the server running?', 'error');
+        } finally {
+            const btn = loginForm.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Sign In';
+            btn.disabled = false;
         }
     });
-}
 
-// Message display function
-function showMessage(message, type) {
-    // Remove any existing messages
-    const existingMessage = document.querySelector('.auth-message');
-    if (existingMessage) {
-        existingMessage.remove();
+    // Helper Functions
+    function showMessage(text, type) {
+        if (!authMessage) return;
+        authMessage.textContent = text;
+        authMessage.classList.remove('hidden', 'bg-green-900/40', 'text-green-300', 'border-green-500/30', 'bg-red-900/40', 'text-red-300', 'border-red-500/30');
+
+        if (type === 'success') {
+            authMessage.classList.add('bg-green-900/40', 'text-green-300', 'border-green-500/30');
+        } else {
+            authMessage.classList.add('bg-red-900/40', 'text-red-300', 'border-red-500/30');
+        }
+        authMessage.classList.remove('hidden');
     }
-    
-    // Create new message element
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `auth-message mt-4 p-3 rounded-lg text-sm ${
-        type === 'success' 
-            ? 'bg-green-900/50 text-green-300 border border-green-500/30' 
-            : 'bg-red-900/50 text-red-300 border border-red-500/30'
-    }`;
-    messageDiv.textContent = message;
-    
-    // Insert message after the active form
-    const activeForm = signupForm.classList.contains('hidden') ? loginForm : signupForm;
-    activeForm.appendChild(messageDiv);
-    
-    // Auto-remove error messages after 5 seconds
-    if (type === 'error') {
-        setTimeout(() => {
-            if (messageDiv.parentNode) {
-                messageDiv.remove();
-            }
-        }, 5000);
+
+    function hideMessage() {
+        authMessage?.classList.add('hidden');
     }
-}
+});

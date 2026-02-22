@@ -1,6 +1,6 @@
 # 🚀 Scorpion Security Hub - Deployment Guide
 
-This guide covers deployment options for your Scorpion Security Hub application using **DigitalOcean App Platform** and **Vercel**.
+This guide covers deployment options for your Scorpion Security Hub application using **DigitalOcean App Platform**.
 
 ## 📋 **Current Status**
 ✅ **Backend**: Node.js server with Supabase PostgreSQL  
@@ -285,9 +285,8 @@ node --version  # Should be 16+ for most platforms
 ## 📞 **Support Resources**
 
 - **DigitalOcean Docs**: https://docs.digitalocean.com/products/app-platform/
-- **Vercel Docs**: https://vercel.com/docs
 - **Supabase Docs**: https://supabase.com/docs
 
 ---
 
-Your Scorpion Security Hub is ready for deployment! Choose between DigitalOcean for traditional hosting or Vercel for serverless deployment. 🎉
+Your Scorpion Security Hub is ready for deployment on DigitalOcean! 🎉

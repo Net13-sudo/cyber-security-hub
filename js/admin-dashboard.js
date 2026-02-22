@@ -174,7 +174,7 @@ class AdminDashboard {
                 this.showEditModal(data.user);
             }
         } catch (error) {
-            console.error('Failed to load user:', error);
+            console.error('fail to load users:', error);
         }
     }
 

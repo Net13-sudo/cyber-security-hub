@@ -11,7 +11,7 @@ const { libraryRouter } = require('./routes/library');
 const { researchRouter } = require('./routes/research');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = parseInt(process.env.PORT, 10) || 3001;
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
@@ -25,19 +25,23 @@ app.use('/api/admin', adminRouter);
 app.use('/api/library', libraryRouter);
 app.use('/api/research', researchRouter);
 
-const startServer = (port) => {
-  const server = app.listen(port, () => {
-    console.log(`[Server] Scorpion Security Hub API running on port ${port}`);
-  });
+module.exports = app;
 
-  server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.log(`[Server] Port ${port} is already in use. Trying port ${port + 1}...`);
-      startServer(port + 1);
-    } else {
-      console.error('[Server] Error starting server:', err);
-    }
-  });
-};
+if (require.main === module) {
+  const startServer = (port) => {
+    const server = app.listen(port, () => {
+      console.log(`[Server] Scorpion Security Hub API running on port ${port}`);
+    });
 
-startServer(PORT);
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        console.log(`[Server] Port ${port} is already in use. Trying port ${port + 1}...`);
+        startServer(port + 1);
+      } else {
+        console.error('[Server] Error starting server:', err);
+      }
+    });
+  };
+
+  startServer(PORT);
+}

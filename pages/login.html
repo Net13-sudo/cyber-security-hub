@@ -1,338 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - Scorpion Security Hub</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/config.js"></script>
+    <title>Scorpion Security - Log In / Sign Up</title>
+    <!-- Use Tailwind as requested in main.css context -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --dark-bg: #0a0a0a;
-            --dark-surface: #1a1a1a;
-            --dark-card: #2a2a2a;
-            --dark-border: #3a3a3a;
-            --accent-orange: #ff6b35;
-            --accent-red: #dc2626;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
-        }
-
         body {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #f8fafc;
+            overflow: hidden;
         }
 
-        .login-container {
-            background: var(--dark-card);
-            border: 1px solid var(--dark-border);
-            border-radius: 16px;
-            padding: 2rem;
-            width: 100%;
-            max-width: 400px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .logo {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-light);
+        .glass-card {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .form-input {
-            width: 100%;
-            padding: 0.75rem;
-            background: var(--dark-surface);
-            border: 1px solid var(--dark-border);
-            border-radius: 8px;
-            color: var(--text-light);
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .form-input:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #8b5cf6;
             outline: none;
-            border-color: var(--accent-orange);
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
         }
 
-        .btn-primary {
-            width: 100%;
-            padding: 0.75rem;
-            background: var(--accent-orange);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            /* Visual proxy for the "dark mountain wave" aesthetic */
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-primary:hover {
-            background: #e55a2b;
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+            animation: move 20s linear infinite;
         }
 
-        .btn-primary:disabled {
-            background: #6b7280;
-            cursor: not-allowed;
+        @keyframes move {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-10%, -10%);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
-        .error-message {
-            background: rgba(220, 38, 38, 0.1);
-            border: 1px solid rgba(220, 38, 38, 0.3);
-            color: #fca5a5;
-            padding: 0.75rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-        }
-
-        .success-message {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #86efac;
-            padding: 0.75rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-        }
-
-        .back-link {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .back-link a {
-            color: var(--accent-orange);
-            text-decoration: none;
-            font-size: 0.875rem;
-        }
-
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .two-factor-section {
+        .hidden {
             display: none;
         }
 
-        .two-factor-section.show {
-            display: block;
+        .btn-primary {
+            background: linear-gradient(to right, #6d28d9, #7c3aed);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            background: linear-gradient(to right, #7c3aed, #8b5cf6);
+        }
+
+        .social-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.2s;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.06);
         }
     </style>
 </head>
-<body>
-    <div class="login-container">
-        <div class="logo">
-            <svg class="h-16 w-16 text-accent-orange mx-auto mb-4" viewBox="0 0 40 40" fill="currentColor">
-                <path d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
-                <circle cx="20" cy="18" r="6" fill="var(--dark-bg)" />
-            </svg>
-            <h1 class="text-2xl font-bold text-white">Scorpion Security</h1>
-            <p class="text-gray-400 text-sm">Admin Portal</p>
+
+<body class="h-screen flex items-center justify-center p-4">
+    <!-- Split Screen Main Container -->
+    <div class="w-full max-w-7xl h-[85vh] flex overflow-hidden rounded-3xl shadow-2xl glass-card">
+
+        <!-- Left Side: Interactive Branding -->
+        <div class="hidden lg:flex flex-col flex-1 relative gradient-bg p-12 justify-between">
+            <div class="z-10 flex items-center gap-3">
+                <svg class="h-10 w-10 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                    <path
+                        d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                </svg>
+                <span class="text-xl font-bold tracking-tight">Scorpion Security</span>
+            </div>
+
+            <div class="z-10 mb-20 space-y-6">
+                <h1 class="text-5xl font-bold leading-tight">
+                    Your Journey <br />
+                    <span class="text-violet-400">Beautifully Framed</span>
+                </h1>
+                <div class="flex gap-2">
+                    <span class="w-12 h-1 bg-white rounded-full"></span>
+                    <span class="w-12 h-1 bg-white/20 rounded-full"></span>
+                    <span class="w-12 h-1 bg-white/20 rounded-full"></span>
+                </div>
+            </div>
+
+            <div class="z-10">
+                <a href="security_command_homepage.html"
+                    class="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Back to website
+                </a>
+            </div>
         </div>
 
-        <div id="errorMessage" class="error-message" style="display: none;"></div>
-        <div id="successMessage" class="success-message" style="display: none;"></div>
+        <!-- Right Side: Auth Forms -->
+        <div class="flex-1 flex flex-col justify-center px-8 lg:px-20 py-12 bg-[#0a0a0a]/80">
 
-        <form id="loginForm">
-            <div class="form-group">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" id="username" name="username" class="form-input" required autocomplete="username">
+            <!-- Signup Form -->
+            <div id="signupSection">
+                <h2 class="text-3xl font-bold mb-2">Create an account</h2>
+                <p class="text-gray-400 mb-8 text-sm">Join the elite cybersecurity hub today.</p>
+
+                <form id="signupForm" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <input type="text" id="firstName" placeholder="First Name"
+                                class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+                        </div>
+                        <div>
+                            <input type="text" id="lastName" placeholder="Last Name"
+                                class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="email" id="email" placeholder="Email Address"
+                            class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+                    </div>
+                    <div class="relative">
+                        <input type="password" id="password" placeholder="Create Password"
+                            class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+                    </div>
+
+                    <div class="flex items-start gap-3 py-2">
+                        <input type="checkbox" id="terms" class="mt-1 accent-violet-600 rounded" required>
+                        <label for="terms" class="text-xs text-gray-400">
+                            I agree to the <a href="#" class="text-violet-400 hover:underline">Terms & Conditions</a>
+                            and <a href="#" class="text-violet-400 hover:underline">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm">
+                        Create account
+                    </button>
+                </form>
+
+                <div class="relative my-8">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-white/10"></div>
+                    </div>
+                    <div class="relative flex justify-center text-xs uppercase"><span
+                            class="bg-[#0a0a0a] px-2 text-gray-500">Or</span></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <button
+                        class="social-btn flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-medium">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-4 h-4" alt="Google">
+                        Continue with Google
+                    </button>
+                    <button
+                        class="social-btn flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-medium">
+                        <img src="https://www.svgrepo.com/show/330030/apple.svg" class="w-4 h-4" alt="Apple"
+                            style="filter: invert(1);">
+                        Continue with Apple
+                    </button>
+                </div>
+
+                <p class="mt-8 text-center text-sm text-gray-400">
+                    Already have an account?
+                    <button id="switchToLogin" class="text-violet-400 font-semibold hover:underline">Log in</button>
+                </p>
             </div>
 
-            <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" name="password" class="form-input" required autocomplete="current-password">
+            <!-- Login Form (Hidden by default) -->
+            <div id="loginSection" class="hidden">
+                <h2 class="text-3xl font-bold mb-2">Welcome back</h2>
+                <p class="text-gray-400 mb-8 text-sm">Enter your credentials to access your secure portal.</p>
+
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <input type="email" id="loginEmail" placeholder="Email Address"
+                            class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+                    </div>
+                    <div>
+                        <input type="password" id="loginPassword" placeholder="Password"
+                            class="form-input w-full px-4 py-3 rounded-xl text-sm" required>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="button" class="text-xs text-violet-400 hover:underline">Forgot password?</button>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-3.5 rounded-xl font-semibold text-sm">
+                        Sign In
+                    </button>
+                </form>
+
+                <div id="authMessage" class="hidden mt-6 p-4 rounded-xl text-xs text-center border"></div>
+
+                <p class="mt-8 text-center text-sm text-gray-400">
+                    Don't have an account?
+                    <button id="switchToSignup" class="text-violet-400 font-semibold hover:underline">Sign up</button>
+                </p>
             </div>
 
-            <div class="form-group two-factor-section" id="twoFactorSection">
-                <label for="twoFactorToken" class="form-label">Two-Factor Authentication Code</label>
-                <input type="text" id="twoFactorToken" name="twoFactorToken" class="form-input" placeholder="Enter 6-digit code">
-                <p class="text-gray-400 text-xs mt-1">Enter the 6-digit code from your authenticator app</p>
-            </div>
-
-            <button type="submit" id="loginButton" class="btn-primary">
-                <span id="loginButtonText">Sign In</span>
-                <span id="loginButtonLoading" class="loading" style="display: none;"></span>
-            </button>
-        </form>
-
-        <div class="back-link">
-            <a href="security_command_homepage.html">← Back to Homepage</a>
         </div>
     </div>
 
-    <script>
-        const API_BASE_URL = 'http://localhost:3001/api';
-        
-        class LoginManager {
-            constructor() {
-                this.form = document.getElementById('loginForm');
-                this.errorMessage = document.getElementById('errorMessage');
-                this.successMessage = document.getElementById('successMessage');
-                this.twoFactorSection = document.getElementById('twoFactorSection');
-                this.loginButton = document.getElementById('loginButton');
-                this.loginButtonText = document.getElementById('loginButtonText');
-                this.loginButtonLoading = document.getElementById('loginButtonLoading');
-                
-                this.requiresTwoFactor = false;
-                
-                this.init();
-            }
-
-            init() {
-                this.form.addEventListener('submit', (e) => this.handleLogin(e));
-                
-                // Check if already logged in
-                const token = localStorage.getItem('authToken');
-                if (token) {
-                    this.verifyToken(token);
-                }
-            }
-
-            async verifyToken(token) {
-                try {
-                    const response = await fetch(`${API_BASE_URL}/auth/verify`, {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (data.user.role === 'admin') {
-                            window.location.href = 'admin_dashboard.html';
-                        }
-                    } else {
-                        localStorage.removeItem('authToken');
-                    }
-                } catch (error) {
-                    console.error('Token verification failed:', error);
-                    localStorage.removeItem('authToken');
-                }
-            }
-
-            showError(message) {
-                this.errorMessage.textContent = message;
-                this.errorMessage.style.display = 'block';
-                this.successMessage.style.display = 'none';
-            }
-
-            showSuccess(message) {
-                this.successMessage.textContent = message;
-                this.successMessage.style.display = 'block';
-                this.errorMessage.style.display = 'none';
-            }
-
-            hideMessages() {
-                this.errorMessage.style.display = 'none';
-                this.successMessage.style.display = 'none';
-            }
-
-            setLoading(loading) {
-                this.loginButton.disabled = loading;
-                this.loginButtonText.style.display = loading ? 'none' : 'inline';
-                this.loginButtonLoading.style.display = loading ? 'inline-block' : 'none';
-            }
-
-            async handleLogin(e) {
-                e.preventDefault();
-                
-                this.hideMessages();
-                this.setLoading(true);
-
-                const formData = new FormData(this.form);
-                const loginData = {
-                    username: formData.get('username'),
-                    password: formData.get('password')
-                };
-
-                if (this.requiresTwoFactor) {
-                    loginData.token = formData.get('twoFactorToken');
-                }
-
-                try {
-                    const response = await fetch(`${API_BASE_URL}/auth/login`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(loginData)
-                    });
-
-                    const data = await response.json();
-
-                    if (response.ok) {
-                        // Login successful
-                        localStorage.setItem('authToken', data.token);
-                        localStorage.setItem('user', JSON.stringify(data.user));
-                        
-                        this.showSuccess('Login successful! Redirecting...');
-                        
-                        setTimeout(() => {
-                            if (data.user.role === 'admin') {
-                                window.location.href = 'admin_dashboard.html';
-                            } else {
-                                window.location.href = 'client_security_portal.html';
-                            }
-                        }, 1000);
-                        
-                    } else if (response.status === 403 && data.require2fa) {
-                        // 2FA required
-                        this.requiresTwoFactor = true;
-                        this.twoFactorSection.classList.add('show');
-                        this.showError('Please enter your two-factor authentication code');
-                        document.getElementById('twoFactorToken').focus();
-                        
-                    } else {
-                        // Login failed
-                        this.showError(data.error || 'Login failed');
-                        this.requiresTwoFactor = false;
-                        this.twoFactorSection.classList.remove('show');
-                    }
-                    
-                } catch (error) {
-                    console.error('Login error:', error);
-                    this.showError('Connection error. Please check if the server is running.');
-                } finally {
-                    this.setLoading(false);
-                }
-            }
-        }
-
-        // Initialize login manager
-        new LoginManager();
-    </script>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/login-logic.js"></script>
 </body>
+
 </html>
