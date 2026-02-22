@@ -10,7 +10,7 @@ Scorpion-Security-hub/
 ??? pages/                  # Main site pages
 ?   ??? security_command_homepage.html
 ?   ??? threat_intelligence_center.html
-?   ??? penetration_testing_lab.html
+?   ??? penetration_testing.html
 ?   ??? incident_response_center.html
 ?   ??? compliance_solutions.html
 ?   ??? client_security_portal.html
