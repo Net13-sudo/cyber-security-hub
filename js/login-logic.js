@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 localStorage.setItem('user', JSON.stringify(data.user));
 
                 setTimeout(() => {
-                    window.location.href = data.user.role === 'admin' ? 'admin_dashboard.html' : 'security_command_homepage.html';
+                    window.location.href = data.user.role === 'admin' ? 'admin_dashboard.html' : '../index.html';
                 }, 1500);
             } else {
                 showMessage(data.error || 'Invalid credentials. Please try again.', 'error');

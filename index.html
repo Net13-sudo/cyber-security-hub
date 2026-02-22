@@ -2,14 +2,383 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=pages/security_command_homepage.html">
-    <title>Redirecting...</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scorpion Security - Premium Cybersecurity Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --surface-glass: rgba(26, 26, 26, 0.4);
+            --accent-violet: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+        }
+
+        .btn-premium {
+            background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-premium:hover::after {
+            left: 100%;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-violet);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animated-gradient {
+            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            animation: pulse-bg 10s infinite alternate;
+        }
+
+        @keyframes pulse-bg {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.2) translate(5%, 5%);
+            }
+        }
+
+        .threat-monitor-line {
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--accent-violet), transparent);
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <p>Redirecting to <a href="pages/security_command_homepage.html">Scorpion Security Hub</a>...</p>
-    <script id="dhws-dataInjector" src="/public/dhws-data-injector.js"></script>
+<body class="relative">
+    <div class="fixed inset-0 animated-gradient z-0 pointer-events-none"></div>
+
+    <!-- Top Banner -->
+    <div
+        class="bg-violet-900/30 text-violet-200 py-2 px-4 text-center text-xs font-medium border-b border-violet-500/10 z-50 relative">
+        Critical Threat Intelligence Update: New zero-day alert for cloud infrastructure. <a href="#"
+            class="underline ml-1">Read the report</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-12">
+                    <div class="flex items-center gap-3">
+                        <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                        </svg>
+                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion</span>
+                    </div>
+
+                    <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-400">
+                        <a href="index.html" class="text-white">Home</a>
+                        <a href="pages/managed_security.html" class="hover:text-white transition-colors">Services</a>
+                        <a href="pages/threat_intelligence_center.html"
+                            class="hover:text-white transition-colors">Intelligence</a>
+                        <a href="pages/about.html" class="hover:text-white transition-colors">Company</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <a href="pages/login.html"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Sign in</a>
+                    <a href="pages/contact.html"
+                        class="btn-premium px-6 py-2 rounded-full text-sm font-semibold text-white">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-violet-500 animate-pulse"></span>
+                    Trusted by 500+ global enterprises
+                </div>
+
+                <h1 class="text-6xl md:text-8xl font-bold tracking-tight leading-[1.1] gradient-text">
+                    Next-Gen Security <br /> for the Digital Age
+                </h1>
+
+                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Protect your assets with our elite cybersecurity suite. Advanced threat detection, orchestrated
+                    response, and quantum-ready encryption.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                    <a href="pages/contact.html" class="btn-premium px-10 py-4 rounded-full text-lg font-bold">
+                        Secure Your Business
+                    </a>
+                    <a href="pages/portfolio.html" class="btn-outline px-10 py-4 rounded-full text-lg font-bold">
+                        View Case Studies
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Visualization -->
+        <div class="max-w-7xl mx-auto px-6 mt-20">
+            <div class="glass-card rounded-3xl overflow-hidden aspect-video relative group">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000"
+                    alt="Dashboard" class="w-full h-full object-cover opacity-60">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+
+                <div class="absolute bottom-12 left-12 right-12 flex justify-between items-end">
+                    <div class="space-y-4">
+                        <div class="text-white text-2xl font-bold">Threat Intelligence Center</div>
+                        <div class="flex gap-4">
+                            <div
+                                class="px-4 py-2 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold">
+                                Network: SECURE</div>
+                            <div
+                                class="px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold">
+                                Attacks Blocked: 2.4k</div>
+                        </div>
+                    </div>
+                    <button
+                        class="bg-white/10 hover:bg-white/20 backdrop-blur-md px-6 py-3 rounded-xl text-sm font-bold border border-white/10 transition-all">
+                        Live Monitor Overview
+                    </button>
+                </div>
+                <div class="absolute top-0 left-0 w-full threat-monitor-line pointer-events-none"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="space-y-4">
+                    <h2 class="text-sm font-bold text-violet-500 uppercase tracking-widest">Our Expertise</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold gradient-text">Comprehensive Protection</h3>
+                </div>
+                <p class="text-slate-400 max-w-md">Tailored security solutions for businesses of all sizes, from
+                    startups to global enterprises.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Managed Security -->
+                <div class="glass-card p-10 rounded-3xl space-y-6 group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-violet-500/10 flex items-center justify-center border border-violet-500/20 group-hover:bg-violet-500/20 transition-all">
+                        <svg class="w-8 h-8 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold">Managed Security</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">24/7 SOC monitoring, endpoint protection, and
+                        managed detection and response (MDR).</p>
+                    <a href="pages/managed_security.html"
+                        class="flex items-center gap-2 text-violet-400 text-sm font-bold group-hover:gap-4 transition-all">
+                        Explore MSSP <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Pen Testing -->
+                <div class="glass-card p-10 rounded-3xl space-y-6 group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center border border-blue-500/20 group-hover:bg-blue-500/20 transition-all">
+                        <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold">Penetration Testing</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Rigorous ethical hacking assessments to uncover
+                        vulnerabilities before attackers do.</p>
+                    <a href="pages/penetration_testing.html"
+                        class="flex items-center gap-2 text-blue-400 text-sm font-bold group-hover:gap-4 transition-all">
+                        Offensive Security <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- IR -->
+                <div class="glass-card p-10 rounded-3xl space-y-6 group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-red-500/10 flex items-center justify-center border border-red-500/20 group-hover:bg-red-500/20 transition-all">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-bold">Incident Response</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Rapid breach recovery, forensic investigations,
+                        and emergency crisis management.</p>
+                    <a href="pages/incident_response_center.html"
+                        class="flex items-center gap-2 text-red-400 text-sm font-bold group-hover:gap-4 transition-all">
+                        Emergency Support <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-20 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <svg class="h-6 w-6 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                        </svg>
+                        <span class="text-xl font-bold tracking-tight">Scorpion</span>
+                    </div>
+                    <p class="text-slate-500 text-xs">A division of Scorpion Cybernetics. Protecting the digital
+                        backbone of the modern economy since 2012.</p>
+                </div>
+
+                <div>
+                    <h5 class="text-white text-sm font-bold mb-6">Security Solutions</h5>
+                    <ul class="space-y-4 text-slate-500 text-sm">
+                        <li><a href="#" class="hover:text-violet-400 transition-all">Managed SOC</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Cloud Security</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">DR as a Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">IAM Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white text-sm font-bold mb-6">Company</h5>
+                    <ul class="space-y-4 text-slate-500 text-sm">
+                        <li><a href="pages/about.html" class="hover:text-white transition-all">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Partnerships</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Press Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-all">Legal Library</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white text-sm font-bold mb-6">Contact</h5>
+                    <ul class="space-y-4 text-slate-500 text-sm">
+                        <li><a href="mailto:threat@scorpion.com"
+                                class="hover:text-white transition-all">threat@scorpion.com</a></li>
+                        <li><a href="tel:1800SCORPION" class="hover:text-white transition-all">+1 (800) SCORPION</a>
+                        </li>
+                        <li class="pt-4">
+                            <div class="flex gap-4">
+                                <a href="#"
+                                    class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-violet-500/20 transition-all"><svg
+                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                                    </svg></a>
+                                <a href="#"
+                                    class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-violet-500/20 transition-all"><svg
+                                        class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                    </svg></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-xs font-medium">
+                <p>© 2024 Scorpion Cybernetics. All rights reserved. Encrypted by SCORP-AES-256.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-all">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-all">Terms of Service</a>
+                    <a href="#" class="hover:text-white transition-all">Cookie Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/admin-dashboard.js"></script>
+    <script id="dhws-dataInjector" src="public/dhws-data-injector.js"></script>
 </body>
 
 </html>
