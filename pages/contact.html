@@ -4,22 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - CyberGuard Security</title>
-    <link href="../css/tailwind.css" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
+    <title>Contact Us - Scorpion Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --surface-glass: rgba(26, 26, 26, 0.4);
+            --accent-violet: #8b5cf6;
+            --accent-blue: #3b82f6;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.2);
+        }
+
+        .btn-premium {
+            background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-premium::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-premium:hover::after {
+            left: 100%;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .form-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-violet);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-900 text-white">
     <!-- Navigation -->
-    <nav class="bg-black/50 backdrop-blur-sm border-b border-cyan-500/20 sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-cyan-400">CyberGuard</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="../index.html" class="hover:text-cyan-400 transition-colors">Home</a>
-                    <a href="about.html" class="hover:text-cyan-400 transition-colors">About</a>
-                    <a href="penetration_testing.html" class="hover:text-cyan-400 transition-colors">Services</a>
-                    <a href="contact.html" class="text-cyan-400">Contact</a>
+    <nav class="glass-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-12">
+                    <div class="flex items-center gap-3">
+                        <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                        </svg>
+                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion</span>
+                    </div>
+
+                    <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-400">
+                        <a href="../index.html" class="hover:text-white transition-colors">Home</a>
+                        <a href="managed_security.html" class="hover:text-white transition-colors">Services</a>
+                        <a href="threat_intelligence_center.html"
+                            class="hover:text-white transition-colors">Intelligence</a>
+                        <a href="about.html" class="hover:text-white transition-colors">About</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <a href="login.html"
+                        class="text-sm font-medium text-slate-400 hover:text-white transition-colors">Sign in</a>
+                    <a href="contact.html" class="text-white font-semibold">Contact</a>
                 </div>
             </div>
         </div>
@@ -29,8 +128,8 @@
     <section class="py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    Get In <span class="text-cyan-400">Touch</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+                    Get In Touch
                 </h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Ready to secure your digital assets? Contact our cybersecurity experts today.
@@ -39,8 +138,8 @@
 
             <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
                 <!-- Contact Form -->
-                <div class="bg-gray-800/50 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-8">
-                    <h2 class="text-2xl font-bold mb-6 text-cyan-400">Send us a Message</h2>
+                <div class="glass-card shadow-xl rounded-3xl p-10">
+                    <h2 class="text-2xl font-bold mb-8 gradient-text">Send us a Message</h2>
                     <form class="space-y-6">
                         <div>
                             <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
@@ -93,7 +192,7 @@
                         </div>
 
                         <button type="submit"
-                            class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                            class="btn-premium w-full py-4 rounded-xl font-bold text-white transition-all">
                             Send Message
                         </button>
                     </form>
@@ -101,8 +200,8 @@
 
                 <!-- Contact Information -->
                 <div class="space-y-8">
-                    <div class="bg-gray-800/50 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-8">
-                        <h2 class="text-2xl font-bold mb-6 text-cyan-400">Contact Information</h2>
+                    <div class="glass-card rounded-3xl p-10">
+                        <h2 class="text-2xl font-bold mb-8 gradient-text">Contact Information</h2>
 
                         <div class="space-y-6">
                             <div class="flex items-start space-x-4">
@@ -116,8 +215,8 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold">Email</h3>
-                                    <p class="text-gray-300">info@cyberguard-security.com</p>
-                                    <p class="text-gray-300">support@cyberguard-security.com</p>
+                                    <p class="text-slate-400">info@scorpion-security.com</p>
+                                    <p class="text-slate-400">support@scorpion-security.com</p>
                                 </div>
                             </div>
 
@@ -131,8 +230,8 @@
                                 </div>
                                 <div>
                                     <h3 class="font-semibold">Phone</h3>
-                                    <p class="text-gray-300">+1 (555) 123-4567</p>
-                                    <p class="text-cyan-400 font-medium">Kenyan Number: +254 964 799 75</p>
+                                    <p class="text-slate-400">+1 (800) SCORPION</p>
+                                    <p class="text-violet-400 font-medium">+254 964 799 75 (East Africa)</p>
                                 </div>
                             </div>
 
@@ -164,18 +263,19 @@
                                     <p class="text-gray-300">Monday - Friday: 9:00 AM - 6:00 PM</p>
                                     <p class="text-gray-300">Saturday: 10:00 AM - 4:00 PM</p>
                                     <p class="text-gray-300">Sunday: Closed</p>
-                                    <p class="text-cyan-400 text-sm mt-2">24/7 Emergency Response Available</p>
+                                    <p class="text-violet-400 text-sm mt-2">24/7 Global Intelligence Coverage</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Emergency Contact -->
-                    <div class="bg-red-900/20 border border-red-500/30 rounded-lg p-6">
-                        <h3 class="text-xl font-bold text-red-400 mb-4">Emergency Security Response</h3>
-                        <p class="text-gray-300 mb-4">For immediate security incidents and breaches:</p>
-                        <p class="text-red-400 font-bold text-lg">+1 (555) 911-CYBER</p>
-                        <p class="text-sm text-gray-400 mt-2">Available 24/7 for critical security incidents</p>
+                    <div class="bg-red-900/10 border border-red-500/20 rounded-3xl p-8">
+                        <h3 class="text-xl font-bold text-red-500 mb-4">Emergency Support Line</h3>
+                        <p class="text-slate-300 mb-4">Immediate security breach assistance:</p>
+                        <p class="text-red-500 font-bold text-2xl">+1 (800) SCORPION-IR</p>
+                        <p class="text-xs text-red-400/60 mt-2">Certified for critical critical infrastructure response
+                        </p>
                     </div>
                 </div>
             </div>
@@ -183,21 +283,30 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/50 border-t border-cyan-500/20 py-12">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <div class="text-2xl font-bold text-cyan-400 mb-4">CyberGuard</div>
-                <p class="text-gray-400">Protecting your digital future, one byte at a time.</p>
-                <div class="mt-6 flex justify-center space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Security</a>
+    <footer class="bg-black py-20 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center space-y-8">
+                <div class="flex justify-center items-center gap-3">
+                    <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                        <path
+                            d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                    </svg>
+                    <span class="text-2xl font-bold tracking-tight gradient-text">Scorpion</span>
                 </div>
-                <p class="text-gray-500 text-sm mt-4">&copy; 2024 CyberGuard Security. All rights reserved.</p>
+                <p class="text-slate-500 max-w-lg mx-auto text-sm">Protecting the digital backbone of the modern economy
+                    through elite intelligence and offensive security.</p>
+                <div class="flex justify-center gap-12 text-sm font-medium">
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">Cookie Settings</a>
+                </div>
+                <div class="pt-8 border-t border-white/5 text-slate-600 text-xs">
+                    © 2024 Scorpion Cybernetics. All rights reserved.
+                </div>
             </div>
         </div>
     </footer>
-<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+    <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
 
 </html>

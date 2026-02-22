@@ -4,25 +4,20 @@
 const CONFIG = {
     // Detect environment
     isDevelopment: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
-    
+
     // API Base URLs
     get API_BASE_URL() {
-        if (this.isDevelopment) {
-            return 'http://localhost:30011/api';
-        } else {
-            // Production API URL - Railway deployment
-            return `${window.location.origin}/api`;
-        }
+        return `${window.location.origin}/api`;
     },
-    
+
     get AUTH_API_URL() {
         return `${this.API_BASE_URL}/auth`;
     },
-    
+
     // Application settings
     APP_NAME: 'Scorpion Security Hub',
     VERSION: '1.0.0',
-    
+
     // Feature flags
     FEATURES: {
         AI_WIDGET: true,
@@ -30,7 +25,7 @@ const CONFIG = {
         ADVANCED_ANALYTICS: true,
         TWO_FACTOR_AUTH: true
     },
-    
+
     // UI Settings
     UI: {
         THEME: 'dark',
@@ -38,7 +33,7 @@ const CONFIG = {
         AUTO_REFRESH_INTERVAL: 30000, // 30 seconds
         PAGINATION_SIZE: 10
     },
-    
+
     // Security settings
     SECURITY: {
         SESSION_TIMEOUT: 3600000, // 1 hour in milliseconds
@@ -56,24 +51,24 @@ window.SCORPION_UTILS = {
     getApiUrl: (endpoint) => {
         return `${CONFIG.API_BASE_URL}${endpoint.startsWith('/') ? endpoint : '/' + endpoint}`;
     },
-    
+
     // Check if user is authenticated
     isAuthenticated: () => {
         const token = localStorage.getItem('authToken');
         return token && token !== 'null' && token !== 'undefined';
     },
-    
+
     // Get user info from localStorage
     getCurrentUser: () => {
         if (!window.SCORPION_UTILS.isAuthenticated()) return null;
-        
+
         return {
             username: localStorage.getItem('username'),
             role: localStorage.getItem('userRole'),
             token: localStorage.getItem('authToken')
         };
     },
-    
+
     // Logout user
     logout: () => {
         localStorage.removeItem('authToken');
@@ -81,7 +76,7 @@ window.SCORPION_UTILS = {
         localStorage.removeItem('userRole');
         window.location.href = '/pages/login.html';
     },
-    
+
     // Format date for display
     formatDate: (dateString) => {
         const date = new Date(dateString);
@@ -93,27 +88,26 @@ window.SCORPION_UTILS = {
             minute: '2-digit'
         });
     },
-    
+
     // Show notification
     showNotification: (message, type = 'info', duration = 5000) => {
         // Create notification element
         const notification = document.createElement('div');
-        notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transition-all duration-300 ${
-            type === 'success' ? 'bg-green-900/90 text-green-100 border border-green-500/30' :
+        notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transition-all duration-300 ${type === 'success' ? 'bg-green-900/90 text-green-100 border border-green-500/30' :
             type === 'error' ? 'bg-red-900/90 text-red-100 border border-red-500/30' :
-            type === 'warning' ? 'bg-yellow-900/90 text-yellow-100 border border-yellow-500/30' :
-            'bg-blue-900/90 text-blue-100 border border-blue-500/30'
-        }`;
-        
+                type === 'warning' ? 'bg-yellow-900/90 text-yellow-100 border border-yellow-500/30' :
+                    'bg-blue-900/90 text-blue-100 border border-blue-500/30'
+            }`;
+
         notification.innerHTML = `
             <div class="flex items-center justify-between">
                 <span>${message}</span>
                 <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-xl opacity-70 hover:opacity-100">&times;</button>
             </div>
         `;
-        
+
         document.body.appendChild(notification);
-        
+
         // Auto-remove after duration
         setTimeout(() => {
             if (notification.parentNode) {

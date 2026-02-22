@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { healthRouter } = require('./routes/health');
 const { threatRouter } = require('./routes/threats');
 const { incidentsRouter } = require('./routes/incidents');
@@ -15,6 +16,9 @@ const PORT = parseInt(process.env.PORT, 10) || 3001;
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
+
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname, '../../')));
 
 app.use('/api', healthRouter);
 app.use('/api/threat-intelligence', threatRouter);
