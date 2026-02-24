@@ -1,5 +1,5 @@
 // Incident Response JavaScript
-const API_BASE = 'http://localhost:30011/api';
+const API_BASE = (window.SCORPION_CONFIG && window.SCORPION_CONFIG.API_BASE_URL) || 'http://localhost:3001/api';
 let currentIncidents = [];
 let authToken = null;
 

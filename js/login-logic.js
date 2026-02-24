@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const res = await fetch(`${API_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
+                body: JSON.stringify({ identifier: email, password })
             });
 
             const data = await res.json();
@@ -110,9 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 showMessage('Login successful! Redirecting...', 'success');
                 localStorage.setItem('authToken', data.token);
                 localStorage.setItem('user', JSON.stringify(data.user));
+                localStorage.setItem('username', data.user.username);
+                localStorage.setItem('userRole', data.user.role);
 
                 setTimeout(() => {
-                    window.location.href = data.user.role === 'admin' ? 'admin_dashboard.html' : '../index.html';
+                    if (data.user.role === 'admin') {
+                        window.location.href = 'admin_dashboard.html';
+                    } else {
+                        window.location.href = '../index.html';
+                    }
                 }, 1500);
             } else {
                 showMessage(data.error || 'Invalid credentials. Please try again.', 'error');

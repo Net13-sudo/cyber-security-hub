@@ -14,7 +14,31 @@ const { researchRouter } = require('./routes/research');
 const app = express();
 const PORT = parseInt(process.env.PORT, 10) || 3001;
 
-app.use(cors({ origin: true, credentials: true }));
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:5500',
+  'http://localhost:3001',
+  /\.vercel\.app$/
+];
+
+if (process.env.CORS_ORIGIN) {
+  process.env.CORS_ORIGIN.split(',').forEach(origin => allowedOrigins.push(origin.trim()));
+}
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.some(pattern => {
+      if (pattern instanceof RegExp) return pattern.test(origin);
+      return pattern === origin;
+    })) {
+      return callback(null, true);
+    }
+    callback(new Error('Not allowed by CORS'));
+  },
+  credentials: true
+}));
 app.use(express.json());
 
 // Serve static files from the root directory

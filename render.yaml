@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: scorpion-security-api
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: JWT_SECRET
+        value: change-this-in-production
+      - key: BCRYPT_ROUNDS
+        value: 12
+      - key: CORS_ORIGIN
+        fromDatabase: true
+    disk:
+      name: sqlite-db
+      mountPath: /opt/render/project/server/src/db
+      sizeGB: 1

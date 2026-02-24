@@ -1,5 +1,5 @@
 // Digital Library Management
-const API_BASE_URL = 'http://localhost:30011/api';
+const API_BASE_URL = (window.SCORPION_CONFIG && window.SCORPION_CONFIG.API_BASE_URL) || 'http://localhost:3001/api';
 
 class DigitalLibrary {
     constructor() {

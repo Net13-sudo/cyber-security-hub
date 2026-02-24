@@ -48,14 +48,15 @@ const requireSuperAdmin = async (req, res, next) => {
 
 // Login endpoint
 router.post('/login', async (req, res) => {
-    const { username, password, token: twoFactorToken } = req.body;
+    const { identifier, username, email, password, token: twoFactorToken } = req.body;
+    const loginName = identifier || username || email;
 
-    if (!username || !password) {
-        return res.status(400).json({ error: 'Username and password are required' });
+    if (!loginName || !password) {
+        return res.status(400).json({ error: 'Username/Email and password are required' });
     }
 
     try {
-        const user = await get('SELECT * FROM users WHERE username = ?', [username]);
+        const user = await get('SELECT * FROM users WHERE username = ? OR email = ?', [loginName, loginName]);
 
         if (!user) {
             return res.status(401).json({ error: 'Invalid credentials' });
@@ -95,15 +96,15 @@ router.post('/login', async (req, res) => {
             { expiresIn: '24h' }
         );
 
-        res.json({ 
-            token, 
-            user: { 
-                id: user.id, 
-                username: user.username, 
+        res.json({
+            token,
+            user: {
+                id: user.id,
+                username: user.username,
                 role: user.role,
                 is_super_admin: user.is_super_admin,
                 email: user.email
-            } 
+            }
         });
     } catch (err) {
         console.error('[Auth] Login error:', err);
@@ -111,8 +112,50 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// Register endpoint (only for super admin to create new users)
-router.post('/register', requireSuperAdmin, async (req, res) => {
+// Register endpoint (public signup)
+router.post('/register', async (req, res) => {
+    const { username, password, email, firstName, lastName } = req.body;
+    const displayName = username || `${firstName} ${lastName}`.trim();
+
+    if (!displayName || !password) {
+        return res.status(400).json({ error: 'Username and password are required' });
+    }
+
+    if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+    }
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 12);
+
+        const result = await run(
+            'INSERT INTO users (username, password_hash, email, role, is_super_admin) VALUES (?, ?, ?, ?, ?)',
+            [displayName, hashedPassword, email, 'user', 0]
+        );
+
+        const user = {
+            id: result.id,
+            username: displayName,
+            role: 'user',
+            is_super_admin: false,
+            email: email
+        };
+
+        res.status(201).json({
+            user,
+            message: 'User registered successfully. Please log in.'
+        });
+    } catch (err) {
+        if (err.message && err.message.includes('UNIQUE constraint failed')) {
+            return res.status(409).json({ error: 'Email or username already exists' });
+        }
+        console.error('[Auth] Register error:', err);
+        res.status(500).json({ error: 'Server error during registration' });
+    }
+});
+
+// Private register endpoint (only for super admin to create new users)
+router.post('/admin/register', requireSuperAdmin, async (req, res) => {
     const { username, password, email, role = 'user', is_super_admin = false } = req.body;
 
     if (!username || !password) {
@@ -125,9 +168,9 @@ router.post('/register', requireSuperAdmin, async (req, res) => {
         // Generate 2FA secret for admins
         let secret = null;
         let qrCodeUrl = null;
-        
+
         if (role === 'admin') {
-            const twoFactorSecret = speakeasy.generateSecret({ 
+            const twoFactorSecret = speakeasy.generateSecret({
                 name: `ScorpionSecurityHub (${username})`,
                 issuer: 'Scorpion Security'
             });
@@ -140,9 +183,9 @@ router.post('/register', requireSuperAdmin, async (req, res) => {
             [username, hashedPassword, email || null, role, is_super_admin ? 1 : 0, secret]
         );
 
-        const user = { 
-            id: result.id, 
-            username, 
+        const user = {
+            id: result.id,
+            username,
             role,
             is_super_admin: is_super_admin,
             email: email || null
@@ -150,7 +193,7 @@ router.post('/register', requireSuperAdmin, async (req, res) => {
 
         const response = {
             user,
-            message: 'User registered successfully'
+            message: 'Admin user registered successfully'
         };
 
         if (qrCodeUrl) {
@@ -166,7 +209,7 @@ router.post('/register', requireSuperAdmin, async (req, res) => {
         if (err.message && err.message.includes('UNIQUE constraint failed')) {
             return res.status(409).json({ error: 'Username already exists' });
         }
-        console.error('[Auth] Register error:', err);
+        console.error('[Auth] Admin register error:', err);
         res.status(500).json({ error: 'Server error' });
     }
 });
@@ -175,12 +218,12 @@ router.post('/register', requireSuperAdmin, async (req, res) => {
 router.get('/verify', authenticateToken, async (req, res) => {
     try {
         const user = await get('SELECT id, username, email, role, is_super_admin FROM users WHERE id = ?', [req.user.userId]);
-        
+
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
 
-        res.json({ 
+        res.json({
             user: {
                 id: user.id,
                 username: user.username,

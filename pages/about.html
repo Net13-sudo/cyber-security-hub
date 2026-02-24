@@ -327,57 +327,71 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-20 border-t border-white/5 relative z-10">
+    <!-- Unified Footer -->
+    <footer class="pt-24 pb-12 bg-black border-t border-white/5 relative z-10">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-1 space-y-6">
+            <div class="grid md:grid-cols-12 gap-12 mb-20">
+                <div class="md:col-span-5 space-y-8">
                     <div class="flex items-center gap-3">
-                        <svg class="h-6 w-6 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                        <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
                             <path
                                 d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
                         </svg>
-                        <span class="text-xl font-bold tracking-tight">Scorpion</span>
+                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion</span>
                     </div>
-                    <p class="text-slate-500 text-xs">Propelling security forward with intelligence and precision. Part
-                        of the Scorpion Cybernetics ecosystem.</p>
+                    <p class="text-slate-500 text-lg leading-relaxed max-w-sm">Crafting the next generation of digital
+                        defense. Sovereign security for a connected world.</p>
                 </div>
 
-                <div>
-                    <h5 class="text-white text-sm font-bold mb-6">Security Solutions</h5>
-                    <ul class="space-y-4 text-slate-500 text-sm">
-                        <li><a href="#" class="hover:text-violet-400 transition-all">Managed SOC</a></li>
-                        <li><a href="#" class="hover:text-white transition-all">Cloud Security</a></li>
-                        <li><a href="#" class="hover:text-white transition-all">DR as a Service</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-white text-sm font-bold mb-6">Company</h5>
-                    <ul class="space-y-4 text-slate-500 text-sm">
-                        <li><a href="about.html" class="hover:text-white transition-all">Our Story</a></li>
-                        <li><a href="portfolio.html" class="hover:text-white transition-all">Case Studies</a></li>
-                        <li><a href="#" class="hover:text-white transition-all">Legal Library</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h5 class="text-white text-sm font-bold mb-6">Contact</h5>
-                    <ul class="space-y-4 text-slate-500 text-sm">
-                        <li><a href="mailto:threat@scorpion.com"
-                                class="hover:text-white transition-all">threat@scorpion.com</a></li>
-                        <li><a href="tel:1800SCORPION" class="hover:text-white transition-all">+1 (800) SCORPION</a>
-                        </li>
-                    </ul>
+                <div class="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Intelligence</h4>
+                        <ul class="space-y-4">
+                            <li><a href="threat_intelligence_center.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Intel Hub</a></li>
+                            <li><a href="digital_library.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Digital Library</a>
+                            </li>
+                            <li><a href="research_projects.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Research</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Operations</h4>
+                        <ul class="space-y-4">
+                            <li><a href="penetration_testing.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Pen-Testing</a></li>
+                            <li><a href="compliance_solutions.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Compliance</a></li>
+                            <li><a href="incident_response_center.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Incident Center</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Identity</h4>
+                        <ul class="space-y-4">
+                            <li><a href="login.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Access Portal</a>
+                            </li>
+                            <li><a href="portfolio.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Artifacts</a></li>
+                            <li><a href="about.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Chronicle</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div
-                class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-600 text-xs font-medium">
-                <p>© 2024 Scorpion Cybernetics. All rights reserved.</p>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-white/5">
+                <span class="text-xs text-slate-600 font-medium">© 2025 Scorpion Security. All rights reserved.</span>
                 <div class="flex gap-8">
-                    <a href="#" class="hover:text-white transition-all">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-all">Terms of Service</a>
+                    <a href="#"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-white transition-all">Privacy</a>
+                    <a href="#"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-white transition-all">Terms</a>
+                    <a href="#"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-white transition-all">Security</a>
                 </div>
             </div>
         </div>

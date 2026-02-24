@@ -319,12 +319,12 @@ const items = await db.queryTable('digital_library', {
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  🌐 Frontend (Static Hosting)                              │
-│  ├── DigitalOcean/Netlify/CloudFlare Pages                │
+│  ├── DigitalOcean/CloudFlare Pages                        │
 │  ├── CDN distribution                                      │
 │  └── SSL/TLS termination                                   │
 │                                                             │
 │  ⚡ Backend API (Node.js)                                  │
-│  ├── Railway/Heroku/DigitalOcean                          │
+│  ├── Heroku/DigitalOcean                                  │
 │  ├── Auto-scaling                                         │
 │  ├── Health checks                                        │
 │  └── Environment variables                                │

@@ -78,24 +78,28 @@
 
 <body class="flex flex-col min-h-screen">
     <!-- Navigation -->
-    <nav class="glass-nav sticky top-0 z-50">
+    <nav class="glass-nav fixed top-0 w-full z-[100]">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-12">
                     <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='../index.html'">
                         <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
                             <path
                                 d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
                         </svg>
-                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion<span
-                                class="text-violet-500">.</span>Library</span>
+                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion</span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="admin_dashboard.html" class="text-slate-400 hover:text-white transition-all">Control</a>
-                    <a href="research_projects.html" class="text-slate-400 hover:text-white transition-all">Research</a>
-                    <a href="#" class="text-white transition-all font-bold">Library</a>
+                <div class="hidden lg:flex items-center gap-10 text-[10px] font-bold uppercase tracking-widest">
+                    <a href="admin_dashboard.html" class="text-slate-500 hover:text-white transition-all">Control</a>
+                    <a href="research_projects.html" class="text-slate-500 hover:text-white transition-all">Research</a>
+                    <a href="threat_intelligence_center.html"
+                        class="text-slate-500 hover:text-white transition-all">Intel</a>
+                    <a href="#" class="text-violet-500 transition-all border-b border-violet-500/30 pb-1">Library</a>
                 </div>
+                <button
+                    class="bg-violet-600/10 text-violet-500 px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest border border-violet-500/20 hover:bg-violet-600 transition-all hover:text-white"
+                    onclick="window.location.href='login.html'">Deploy Portal</button>
             </div>
         </div>
     </nav>
@@ -202,6 +206,77 @@
         </div>
     </div>
 
+    <!-- Unified Footer -->
+    <footer class="pt-24 pb-12 bg-black border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 mb-20">
+                <div class="md:col-span-5 space-y-8">
+                    <div class="flex items-center gap-3">
+                        <svg class="h-8 w-8 text-violet-500" viewBox="0 0 40 40" fill="currentColor">
+                            <path
+                                d="M20 2L18 8L12 6L10 12L4 10L6 16L0 18L6 22L4 28L10 26L12 32L18 30L20 36L22 30L28 32L30 26L36 28L34 22L40 18L34 16L36 10L30 12L28 6L22 8L20 2Z" />
+                        </svg>
+                        <span class="text-xl font-bold tracking-tight gradient-text">Scorpion</span>
+                    </div>
+                    <p class="text-slate-500 text-lg leading-relaxed max-w-sm">Crafting the next generation of digital
+                        defense. Sovereign security for a connected world.</p>
+                </div>
+
+                <div class="md:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Intelligence</h4>
+                        <ul class="space-y-4">
+                            <li><a href="threat_intelligence_center.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Intel Hub</a></li>
+                            <li><a href="digital_library.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Digital Library</a>
+                            </li>
+                            <li><a href="research_projects.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Research</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Operations</h4>
+                        <ul class="space-y-4">
+                            <li><a href="penetration_testing.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Pen-Testing</a></li>
+                            <li><a href="compliance_solutions.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Compliance</a></li>
+                            <li><a href="incident_response_center.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Incident Center</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400">Identity</h4>
+                        <ul class="space-y-4">
+                            <li><a href="login.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Access Portal</a>
+                            </li>
+                            <li><a href="portfolio.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Artifacts</a></li>
+                            <li><a href="about.html"
+                                    class="text-sm text-slate-500 hover:text-white transition-all">Chronicle</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-white/5">
+                <span class="text-xs text-slate-600 font-medium">© 2025 Scorpion Security. All rights reserved.</span>
+                <div class="flex gap-8">
+                    <a href="#"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-white transition-all">Privacy</a>
+                    <a href="#"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-white transition-all">Terms</a>
+                    <a href="#"
+                        class="text-[10px] font-bold uppercase tracking-widest text-slate-600 hover:text-white transition-all">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
     <script src="../js/digital-library.js"></script>
     <script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
 </body>
