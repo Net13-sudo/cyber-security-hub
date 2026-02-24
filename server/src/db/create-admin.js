@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const { run, get } = require('./database');
+const { run, get, close } = require('./database');
 
 async function createSuperAdmin() {
     try {
@@ -48,15 +48,27 @@ async function createSuperAdmin() {
     }
 }
 
+// Function to close database connection
+async function closeDatabase() {
+    try {
+        await close();
+    } catch (e) {
+        // Ignore errors
+    }
+}
+
 // Run if called directly
 if (require.main === module) {
     createSuperAdmin()
-        .then(() => {
+        .then(async () => {
             console.log('[Admin Setup] Setup completed successfully!');
+            // Close database and exit
+            await closeDatabase();
             process.exit(0);
         })
-        .catch((error) => {
+        .catch(async (error) => {
             console.error('[Admin Setup] Setup failed:', error);
+            await closeDatabase();
             process.exit(1);
         });
 }

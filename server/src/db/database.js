@@ -423,6 +423,22 @@ class HybridDatabase {
     getDatabaseType() {
         return this.useSupabase ? 'supabase' : 'sqlite';
     }
+
+    // Close database connections
+    async close() {
+        if (sqliteDB) {
+            return new Promise((resolve) => {
+                sqliteDB.close((err) => {
+                    if (err) {
+                        console.error('[SQLite] Error closing database:', err);
+                    } else {
+                        console.log('[SQLite] Database connection closed');
+                    }
+                    resolve();
+                });
+            });
+        }
+    }
 }
 
 // Create singleton instance
@@ -443,5 +459,6 @@ module.exports = {
     getRecord: (table, id, select) => db.getRecord(table, id, select),
     // Utility methods
     healthCheck: () => db.healthCheck(),
-    getDatabaseType: () => db.getDatabaseType()
+    getDatabaseType: () => db.getDatabaseType(),
+    close: () => db.close()
 };
