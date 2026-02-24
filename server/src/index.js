@@ -25,20 +25,28 @@ if (process.env.CORS_ORIGIN) {
   process.env.CORS_ORIGIN.split(',').forEach(origin => allowedOrigins.push(origin.trim()));
 }
 
-app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.some(pattern => {
-      if (pattern instanceof RegExp) return pattern.test(origin);
-      return pattern === origin;
-    })) {
-      return callback(null, true);
-    }
-    callback(new Error('Not allowed by CORS'));
-  },
-  credentials: true
-}));
+// CORS configuration
+// For troubleshooting, allow requests from any origin when the
+// environment variable `ALLOW_ALL_CORS` is set to `true`.
+if (process.env.ALLOW_ALL_CORS === 'true') {
+  console.warn('[CORS] ALLOW_ALL_CORS is enabled - allowing all origins (temporary, for debugging)');
+  app.use(cors({ origin: true, credentials: true }));
+} else {
+  app.use(cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.some(pattern => {
+        if (pattern instanceof RegExp) return pattern.test(origin);
+        return pattern === origin;
+      })) {
+        return callback(null, true);
+      }
+      callback(new Error('Not allowed by CORS'));
+    },
+    credentials: true
+  }));
+}
 app.use(express.json());
 
 // Serve static files from the root directory
