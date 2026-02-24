@@ -169,14 +169,15 @@ function initializeSQLiteTables() {
                                     'CISSP,CISM,CEH,ISO 27001', 'Managed Security Services,Penetration Testing,Compliance & Risk,Incident Response,Threat Intelligence')
                         `);
 
-                        // Seed the database with sample data
+                        // Seed the database with sample data (skip for faster initialization)
                         try {
-                            const { seedDatabase } = require('./seed-data');
-                            await seedDatabase();
+                            // Skip automatic seeding - let create-admin script run separately
+                            // const { seedDatabase } = require('./seed-data');
+                            // await seedDatabase();
                             
-                            // Create super admin
-                            const { createSuperAdmin } = require('./create-admin');
-                            await createSuperAdmin();
+                            // Create super admin (skip - let create-admin script handle this)
+                            // const { createSuperAdmin } = require('./create-admin');
+                            // await createSuperAdmin();
                         } catch (seedError) {
                             console.log('[SQLite] Seed data not available, continuing without seeding');
                         }

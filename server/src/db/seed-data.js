@@ -195,4 +195,21 @@ async function seedDatabase() {
     }
 }
 
+// Run if called directly
+if (require.main === module) {
+    const { close } = require('./database');
+    
+    seedDatabase()
+        .then(async () => {
+            console.log('[Seed] Seeding completed successfully!');
+            await close();
+            process.exit(0);
+        })
+        .catch(async (error) => {
+            console.error('[Seed] Seeding failed:', error);
+            await close();
+            process.exit(1);
+        });
+}
+
 module.exports = { seedDatabase };
