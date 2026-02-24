@@ -5,9 +5,13 @@ const CONFIG = {
     // Detect environment
     isDevelopment: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
 
-    // API Base URLs
+    // API Base URLs - Production API at cyber-security-hub.onrender.com
     get API_BASE_URL() {
-        return `${window.location.origin}/api`;
+        if (this.isDevelopment) {
+            return 'http://localhost:3001/api';
+        }
+        // Production backend
+        return 'https://cyber-security-hub.onrender.com/api';
     },
 
     get AUTH_API_URL() {
