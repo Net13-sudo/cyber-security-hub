@@ -122,17 +122,20 @@
         if (contentType.includes('application/json')) {
           const data = await res.json().catch(function () { return {}; });
           reply = typeof data.reply === 'string' ? data.reply.trim() : '';
+        } else {
+          // attempt to read text body for debugging
+          try { reply = await res.text(); } catch (e) { reply = ''; }
         }
         if (!res.ok) {
-          reply = reply || 'Service error. Try again or check the API.';
+          reply = reply || `Service error (status ${res.status}).`;
         }
         if (!reply) {
-          reply = 'Sorry, I couldn\'t process that. Try rephrasing or check your connection.';
+          reply = `Sorry, I couldn't process that. Try rephrasing or check your connection.`;
         }
         loadingEl.textContent = reply;
       } catch (err) {
         loadingEl.classList.remove('loading');
-        loadingEl.textContent = 'Connection error. Make sure the API is running at ' + API_BASE;
+        loadingEl.textContent = `Connection error: ${err.message}. Make sure the API is running at ${API_BASE}`;
       }
       sendBtn.disabled = false;
       messagesEl.scrollTop = messagesEl.scrollHeight;
